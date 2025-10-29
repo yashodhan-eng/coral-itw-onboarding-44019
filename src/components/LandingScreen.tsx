@@ -30,7 +30,7 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
                 Into the Wild: Exploring Reptiles & Amphibians
               </h1>
               <p className="font-poppins text-[16px] md:text-[18px] text-secondary font-normal tracking-wide mb-3">
-                Live, interactive science classes where kids meet real reptiles and amphibians — from snakes and salamanders to frogs and geckos!
+                Live science classes with real reptiles and amphibians!
               </p>
               {/* Ages Tag */}
               <div className="inline-block bg-[#FFF1EC] border border-primary rounded-full px-[14px] py-[6px]">
