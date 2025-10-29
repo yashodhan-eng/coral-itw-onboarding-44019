@@ -1,6 +1,6 @@
 import coralLogo from "@/assets/coral-academy-logo.png";
-import heroImage from "@/assets/mbs-hero.webp";
-import { Lightbulb, Palette, MessageCircle, Rocket, ChevronDown } from "lucide-react";
+import heroImage from "@/assets/reptiles-hero.webp";
+import { Bug, Droplets, Microscope, Globe, ChevronDown } from "lucide-react";
 import { useState } from "react";
 
 interface LandingScreenProps {
@@ -27,10 +27,10 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
             {/* Title Section */}
             <div className="text-center mb-8 md:mb-10">
               <h1 className="font-poppins font-semibold text-[28px] md:text-[32px] lg:text-[36px] text-foreground mb-3 tracking-tight leading-tight">
-                Mini Business Series
+                Into the Wild: Exploring Reptiles & Amphibians
               </h1>
               <p className="font-poppins text-[16px] md:text-[18px] text-secondary font-normal tracking-wide mb-3">
-                Fun, hands-on business classes for curious kids
+                Live, interactive science classes where kids meet real reptiles and amphibians — from snakes and salamanders to frogs and geckos!
               </p>
               {/* Ages Tag */}
               <div className="inline-block bg-[#FFF1EC] border border-primary rounded-full px-[14px] py-[6px]">
@@ -45,7 +45,7 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
               <div className="max-w-[90%] md:max-w-[85%] mx-auto">
                 <img 
                   src={heroImage} 
-                  alt="Mini Business Series - Brand Logos Collage" 
+                  alt="Into the Wild - Reptiles and Amphibians Collage" 
                   className="w-full h-auto rounded-2xl border-4 border-white shadow-[0_12px_40px_rgba(0,0,0,0.12),0_4px_12px_rgba(0,0,0,0.08)]"
                 />
               </div>
@@ -71,35 +71,35 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
             {/* Learning Outcomes Section */}
             <div className="mb-10 md:mb-12">
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-[700px] mx-auto">
-                {/* Real Brand Stories */}
+                {/* Learn About Real Reptiles */}
                 <div className="bg-white rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.05)] p-3 md:p-4 flex flex-col items-center justify-center text-center">
-                  <Lightbulb className="w-6 h-6 text-primary mb-2" strokeWidth={2} />
+                  <Bug className="w-6 h-6 text-accent mb-2" strokeWidth={2} />
                   <p className="font-poppins font-medium text-[13px] md:text-[14px] text-foreground">
-                    Real Brand Stories
+                    Learn About Real Reptiles
                   </p>
                 </div>
                 
-                {/* Creative Projects */}
+                {/* Explore Amphibians Up Close */}
                 <div className="bg-white rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.05)] p-3 md:p-4 flex flex-col items-center justify-center text-center">
-                  <Palette className="w-6 h-6 text-accent mb-2" strokeWidth={2} />
+                  <Droplets className="w-6 h-6 text-secondary mb-2" strokeWidth={2} />
                   <p className="font-poppins font-medium text-[13px] md:text-[14px] text-foreground">
-                    Creative Projects
+                    Explore Amphibians Up Close
                   </p>
                 </div>
                 
-                {/* Fun Quizzes */}
+                {/* Discover Unique Animal Facts */}
                 <div className="bg-white rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.05)] p-3 md:p-4 flex flex-col items-center justify-center text-center">
-                  <MessageCircle className="w-6 h-6 text-secondary mb-2" strokeWidth={2} />
+                  <Microscope className="w-6 h-6 text-primary mb-2" strokeWidth={2} />
                   <p className="font-poppins font-medium text-[13px] md:text-[14px] text-foreground">
-                    Fun Quizzes
+                    Discover Unique Animal Facts
                   </p>
                 </div>
                 
-                {/* Entrepreneurial Thinking */}
+                {/* Travel Virtually to Wild Places */}
                 <div className="bg-white rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.05)] p-3 md:p-4 flex flex-col items-center justify-center text-center">
-                  <Rocket className="w-6 h-6 text-primary mb-2" strokeWidth={2} />
+                  <Globe className="w-6 h-6 text-accent mb-2" strokeWidth={2} />
                   <p className="font-poppins font-medium text-[13px] md:text-[14px] text-foreground">
-                    Entrepreneurial Thinking
+                    Travel Virtually to Wild Places
                   </p>
                 </div>
               </div>
@@ -108,7 +108,7 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
             {/* Schedule Line */}
             <div className="text-center mb-10 md:mb-12">
               <p className="font-inter text-[14px] md:text-[15px] text-accent italic">
-                Classes every Thursday at 4:00 PM PST.
+                Classes every Thursday at 5:00 PM PST.
               </p>
             </div>
 
@@ -140,10 +140,10 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
                 <div className="relative">
                   <div className={`${!isExpanded ? 'max-h-[140px] md:max-h-[120px]' : ''} overflow-hidden relative`}>
                     <p className="font-poppins text-[14px] md:text-[15px] text-foreground leading-relaxed">
-                      As a parent with an MBA, I genuinely wish I had something like this growing up. My 9-year-old son dreams of becoming an entrepreneur — he loves watching Shark Tank, setting up lemonade stands, and learning how companies are built. We've tried a few online classes before, but Coral Academy's Mini Business Series truly stands out.
+                      As a parent and animal lover, I'm always looking for learning that feels alive — and Coral Academy's Into the Wild class is exactly that. My 10-year-old daughter loves animals but had never seen a live class with real reptiles and amphibians before.
                       {isExpanded && (
                         <span>
-                          {" "}Each week, they explore a real company — from LEGO's bankruptcy turnaround to how founders built their brands. What I love most is that it's not just storytelling — kids get to think, create, and present their ideas. In a recent class on Nike, my son designed his own shoe, decided its USP, and even set a price for it! I was amazed hearing the creative ideas the kids shared. The class is engaging, hands-on, and teaches real-world thinking in such a fun way. I often find myself listening in while doing chores because the discussions are genuinely interesting!
+                          {" "}Now, she can name frogs, salamanders, and snakes from around the world! Each session feels like a field trip — they've met Scaly the Corn Snake and Slimy the Tiger Salamander, and she loves sharing her own drawings during class. It's interactive, fun, and taught by teachers who truly care. I often find myself watching along — it's that fascinating!
                         </span>
                       )}
                     </p>

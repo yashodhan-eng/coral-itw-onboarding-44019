@@ -1,5 +1,5 @@
 export const contentSchema = {
-  redirectUrl: "https://www.coralacademy.com/class/minibusinessseries-c61a217d-9826-45e5-81a7-ff7cdca717b3",
+  redirectUrl: "https://www.coralacademy.com/class/scalesandslime-d8a4adf3-941f-4944-b278-378544601ecc",
   logoSrc: "/src/assets/coral-academy-logo.png",
   q1: {
     title: "How soon are you looking to try our free classes?",
