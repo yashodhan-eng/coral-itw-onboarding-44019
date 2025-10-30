@@ -92,7 +92,7 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
 
             {/* Schedule Line */}
             <div className="text-center mb-6">
-              <p className="font-inter text-[14px] md:text-[15px] text-accent italic font-semibold">
+              <p className="font-inter text-[14px] md:text-[15px] text-accent italic font-medium">
                 Classes every Thursday at 5:00 PM PST.
               </p>
             </div>
@@ -249,7 +249,7 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
                       Jennifer
                     </h3>
                     <p className="font-poppins text-[13px] md:text-[14px] text-secondary flex items-center gap-1">
-                      <MapPin className="w-3.5 h-3.5" />
+                      <span>📍</span>
                       California
                     </p>
                   </div>
