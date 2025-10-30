@@ -1,6 +1,6 @@
 import coralLogo from "@/assets/coral-academy-logo.png";
 import heroImage from "@/assets/reptiles-hero.webp";
-import { Bug, Droplets, Microscope, Globe, ChevronDown, Calendar, PlayCircle } from "lucide-react";
+import { Bug, Droplets, Microscope, Globe, ChevronDown, Calendar, PlayCircle, MapPin } from "lucide-react";
 import { useState } from "react";
 
 interface LandingScreenProps {
@@ -90,6 +90,13 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
               </button>
             </div>
 
+            {/* Schedule Line */}
+            <div className="text-center mb-6">
+              <p className="font-inter text-[14px] md:text-[15px] text-accent italic font-semibold">
+                Classes every Thursday at 5:00 PM PST.
+              </p>
+            </div>
+
             {/* What Kids Learn Title */}
             <div className="text-center mb-6">
               <h2 className="font-poppins font-semibold text-[22px] md:text-[24px] text-foreground">
@@ -132,13 +139,6 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
                   </p>
                 </div>
               </div>
-            </div>
-
-            {/* Schedule Line */}
-            <div className="text-center mb-6">
-              <p className="font-inter text-[14px] md:text-[15px] text-accent italic font-semibold">
-                Classes every Thursday at 5:00 PM PST.
-              </p>
             </div>
 
             {/* Upcoming Schedule Expandable Section */}
@@ -248,7 +248,8 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
                     <h3 className="font-poppins font-semibold text-[16px] md:text-[17px] text-foreground">
                       Jennifer
                     </h3>
-                    <p className="font-poppins text-[13px] md:text-[14px] text-secondary">
+                    <p className="font-poppins text-[13px] md:text-[14px] text-secondary flex items-center gap-1">
+                      <MapPin className="w-3.5 h-3.5" />
                       California
                     </p>
                   </div>
@@ -257,25 +258,33 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
                 {/* Testimonial Text */}
                 <div className="relative">
                   <div className={`${!isExpanded ? 'max-h-[140px] md:max-h-[120px]' : ''} overflow-hidden relative`}>
-                    <p className="font-poppins text-[14px] md:text-[15px] text-foreground leading-relaxed">
-                      As a parent and animal lover, I'm always looking for learning that feels alive — and Coral Academy's Into the Wild class is exactly that. My 10-year-old daughter loves animals but had never seen a live class with real reptiles and amphibians before.
-                      {isExpanded && (
-                        <span>
-                          {" "}Now, she can name frogs, salamanders, and snakes from around the world! Each session feels like a field trip — they've met Scaly the Corn Snake and Slimy the Tiger Salamander, and she loves sharing her own drawings during class. It's interactive, fun, and taught by teachers who truly care. I often find myself watching along — it's that fascinating!
-                        </span>
-                      )}
+                    <p className="font-poppins text-[14px] md:text-[15px] text-foreground leading-relaxed mb-4">
+                      My daughter absolutely loves this class and the teacher.
                     </p>
-                    
-                    {/* Gradient Fade Overlay (only when collapsed) */}
-                    {!isExpanded && (
-                      <div 
-                        className="absolute bottom-0 left-0 right-0 h-20 pointer-events-none"
-                        style={{
-                          background: 'linear-gradient(to bottom, transparent, white)'
-                        }}
-                      />
+                    <p className="font-poppins text-[14px] md:text-[15px] text-foreground leading-relaxed mb-4">
+                      We signed her up because we wanted her to try a few science classes, though it's not really her thing. So I honestly wasn't expecting her to stick with it. She usually drops out of science classes after 3 or 4 weeks. But I was genuinely happy and surprised when she wanted to keep taking this one.
+                    </p>
+                    {isExpanded && (
+                      <>
+                        <p className="font-poppins text-[14px] md:text-[15px] text-foreground leading-relaxed mb-4">
+                          She loves the animal the teacher brings that they all call Lizzie and now she's always pointing out reptiles and species on walks or even on our balcony. She's started sharing facts at dinner, asking to look for frogs in the backyard and drawing pictures of the animals she learns about.
+                        </p>
+                        <p className="font-poppins text-[14px] md:text-[15px] text-foreground leading-relaxed">
+                          I love that the class feels so lively, and we couldn't be happier seeing her pick up on the topic so well.
+                        </p>
+                      </>
                     )}
                   </div>
+                    
+                  {/* Gradient Fade Overlay (only when collapsed) */}
+                  {!isExpanded && (
+                    <div 
+                      className="absolute bottom-0 left-0 right-0 h-20 pointer-events-none"
+                      style={{
+                        background: 'linear-gradient(to bottom, transparent, white)'
+                      }}
+                    />
+                  )}
 
                   {/* Show More/Less Button */}
                   <button
