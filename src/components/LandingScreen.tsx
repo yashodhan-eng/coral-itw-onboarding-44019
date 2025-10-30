@@ -31,7 +31,7 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
               <h1 className="font-poppins font-semibold text-[28px] md:text-[32px] lg:text-[36px] text-foreground mb-3 tracking-tight leading-tight">
                 Into the Wild: Exploring Reptiles & Amphibians
               </h1>
-              <p className="font-poppins text-[16px] md:text-[18px] text-secondary font-normal tracking-wide mb-3">
+              <p className="font-poppins text-[16px] md:text-[18px] text-secondary font-medium tracking-wide mb-3">
                 Live, weekly, science classes with real reptiles & amphibians
               </p>
               {/* Ages Tag */}
