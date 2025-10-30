@@ -1,6 +1,6 @@
 import coralLogo from "@/assets/coral-academy-logo.png";
 import heroImage from "@/assets/reptiles-hero.webp";
-import { Bug, Droplets, Microscope, Globe, ChevronDown } from "lucide-react";
+import { Bug, Droplets, Microscope, Globe, ChevronDown, Calendar, PlayCircle } from "lucide-react";
 import { useState } from "react";
 
 interface LandingScreenProps {
@@ -9,6 +9,8 @@ interface LandingScreenProps {
 
 export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [isScheduleExpanded, setIsScheduleExpanded] = useState(false);
+  const [showVideo, setShowVideo] = useState(false);
   
   return (
     <div className="min-h-screen bg-background relative">
@@ -30,7 +32,7 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
                 Into the Wild: Exploring Reptiles & Amphibians
               </h1>
               <p className="font-poppins text-[16px] md:text-[18px] text-secondary font-normal tracking-wide mb-3">
-                Live science classes with real reptiles and amphibians!
+                Live, weekly, science classes with real reptiles & amphibians
               </p>
               {/* Ages Tag */}
               <div className="inline-block bg-[#FFF1EC] border border-primary rounded-full px-[14px] py-[6px]">
@@ -40,14 +42,34 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
               </div>
             </div>
 
-            {/* Hero Image */}
+            {/* Hero Image with Video */}
             <div className="mb-10 md:mb-12">
-              <div className="max-w-[90%] md:max-w-[85%] mx-auto">
-                <img 
-                  src={heroImage} 
-                  alt="Into the Wild - Reptiles and Amphibians Collage" 
-                  className="w-full h-auto rounded-2xl border-4 border-white shadow-[0_12px_40px_rgba(0,0,0,0.12),0_4px_12px_rgba(0,0,0,0.08)]"
-                />
+              <div className="max-w-[90%] md:max-w-[85%] mx-auto relative">
+                {!showVideo ? (
+                  <div className="relative group cursor-pointer" onClick={() => setShowVideo(true)}>
+                    <img 
+                      src={heroImage} 
+                      alt="Into the Wild - Reptiles and Amphibians Collage" 
+                      className="w-full h-auto rounded-2xl border-4 border-white shadow-[0_12px_40px_rgba(0,0,0,0.12),0_4px_12px_rgba(0,0,0,0.08)]"
+                    />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="bg-white/95 rounded-full p-4 md:p-6 shadow-[0_8px_30px_rgba(0,0,0,0.2)] group-hover:scale-110 transition-transform duration-200">
+                        <PlayCircle className="w-12 h-12 md:w-16 md:h-16 text-primary" strokeWidth={2} />
+                      </div>
+                    </div>
+                  </div>
+                ) : (
+                  <div className="relative rounded-2xl overflow-hidden border-4 border-white shadow-[0_12px_40px_rgba(0,0,0,0.12),0_4px_12px_rgba(0,0,0,0.08)]">
+                    <video 
+                      controls 
+                      autoPlay
+                      className="w-full h-auto"
+                    >
+                      <source src="/videos/ITW_V4.mp4" type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
+                )}
               </div>
             </div>
 
@@ -64,8 +86,15 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
                   background: 'linear-gradient(180deg, #F46A37 0%, #E85522 100%)'
                 }}
               >
-                Try for Free Now
+                 Enroll for Free
               </button>
+            </div>
+
+            {/* What Kids Learn Title */}
+            <div className="text-center mb-6">
+              <h2 className="font-poppins font-semibold text-[22px] md:text-[24px] text-foreground">
+                What Kids Learn
+              </h2>
             </div>
 
             {/* Learning Outcomes Section */}
@@ -106,10 +135,92 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
             </div>
 
             {/* Schedule Line */}
-            <div className="text-center mb-10 md:mb-12">
-              <p className="font-inter text-[14px] md:text-[15px] text-accent italic">
+            <div className="text-center mb-6">
+              <p className="font-inter text-[14px] md:text-[15px] text-accent italic font-semibold">
                 Classes every Thursday at 5:00 PM PST.
               </p>
+            </div>
+
+            {/* Upcoming Schedule Expandable Section */}
+            <div className="mb-10 md:mb-12 max-w-[700px] mx-auto">
+              <div 
+                className="bg-white rounded-2xl overflow-hidden"
+                style={{
+                  boxShadow: '0 2px 12px rgba(0, 0, 0, 0.08)'
+                }}
+              >
+                {/* Header - Always Visible */}
+                <button
+                  onClick={() => setIsScheduleExpanded(!isScheduleExpanded)}
+                  className="w-full p-5 md:p-6 flex items-center justify-between hover:bg-background/50 transition-colors"
+                >
+                  <div className="flex items-center gap-3">
+                    <Calendar className="w-6 h-6 text-primary" strokeWidth={2} />
+                    <h3 className="font-poppins font-semibold text-[16px] md:text-[18px] text-foreground text-left">
+                      Upcoming Schedule
+                    </h3>
+                  </div>
+                  <ChevronDown 
+                    className={`w-5 h-5 text-secondary transition-transform duration-200 ${isScheduleExpanded ? 'rotate-180' : ''}`}
+                  />
+                </button>
+
+                {/* Expandable Content */}
+                {isScheduleExpanded && (
+                  <div className="px-5 md:px-6 pb-5 md:pb-6 pt-0 space-y-6 animate-fade-in">
+                    {/* Week 1 */}
+                    <div className="flex gap-4">
+                      <div className="flex-shrink-0 w-20">
+                        <span className="font-poppins font-semibold text-[15px] text-primary">
+                          Week 1
+                        </span>
+                      </div>
+                      <div className="flex-1">
+                        <h4 className="font-poppins font-semibold text-[15px] md:text-[16px] text-foreground mb-1">
+                          The Philippines
+                        </h4>
+                        <p className="font-poppins text-[14px] md:text-[15px] text-secondary">
+                          Flying lizards & rare island species
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Week 2 */}
+                    <div className="flex gap-4">
+                      <div className="flex-shrink-0 w-20">
+                        <span className="font-poppins font-semibold text-[15px] text-primary">
+                          Week 2
+                        </span>
+                      </div>
+                      <div className="flex-1">
+                        <h4 className="font-poppins font-semibold text-[15px] md:text-[16px] text-foreground mb-1">
+                          Tasmania
+                        </h4>
+                        <p className="font-poppins text-[14px] md:text-[15px] text-secondary">
+                          Native amphibians from a unique ecosystem
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Week 3 */}
+                    <div className="flex gap-4">
+                      <div className="flex-shrink-0 w-20">
+                        <span className="font-poppins font-semibold text-[15px] text-primary">
+                          Week 3
+                        </span>
+                      </div>
+                      <div className="flex-1">
+                        <h4 className="font-poppins font-semibold text-[15px] md:text-[16px] text-foreground mb-1">
+                          New Zealand
+                        </h4>
+                        <p className="font-poppins text-[14px] md:text-[15px] text-secondary">
+                          Ancient reptiles like the tuatara & their island adaptations
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
             </div>
 
             {/* Parent Testimonial Section */}
@@ -186,7 +297,7 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
                   background: 'linear-gradient(180deg, #F46A37 0%, #E85522 100%)'
                 }}
               >
-                Try for Free Now
+                 Enroll for Free
               </button>
             </div>
           </div>
