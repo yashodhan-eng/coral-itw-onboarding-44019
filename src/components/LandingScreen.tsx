@@ -233,18 +233,25 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
               <div 
                 className="bg-white rounded-2xl p-5 md:p-6 relative overflow-hidden"
                 style={{
-                  boxShadow: '0 0 40px rgba(240, 90, 38, 0.15), 0 8px 24px rgba(0, 0, 0, 0.1)',
+                  boxShadow: '0 0 40px rgba(60, 125, 87, 0.15), 0 8px 24px rgba(0, 0, 0, 0.1)',
                   animation: 'pulse-glow 3s ease-in-out infinite'
                 }}
               >
                 {/* Parent Info at Top */}
-                <div className="mb-4">
-                  <h3 className="font-poppins font-semibold text-[16px] md:text-[17px] text-foreground">
-                    Sarah
-                  </h3>
-                  <p className="font-poppins text-[13px] md:text-[14px] text-secondary">
-                    California
-                  </p>
+                <div className="mb-4 flex items-center gap-3">
+                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[#B4D6B3] flex items-center justify-center">
+                    <span className="font-poppins font-semibold text-[20px] text-[#3C7D57]">
+                      J
+                    </span>
+                  </div>
+                  <div>
+                    <h3 className="font-poppins font-semibold text-[16px] md:text-[17px] text-foreground">
+                      Jennifer
+                    </h3>
+                    <p className="font-poppins text-[13px] md:text-[14px] text-secondary">
+                      California
+                    </p>
+                  </div>
                 </div>
 
                 {/* Testimonial Text */}
@@ -273,7 +280,7 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
                   {/* Show More/Less Button */}
                   <button
                     onClick={() => setIsExpanded(!isExpanded)}
-                    className="mt-3 flex items-center gap-1 font-poppins font-medium text-[14px] text-primary hover:text-primary/90 transition-colors"
+                    className="mt-3 flex items-center gap-1 font-poppins font-medium text-[14px] text-[#3C7D57] hover:text-[#3C7D57]/90 transition-colors"
                   >
                     {isExpanded ? 'Show less' : 'Show more'}
                     <ChevronDown 
