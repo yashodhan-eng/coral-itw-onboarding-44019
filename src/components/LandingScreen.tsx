@@ -2,6 +2,7 @@ import coralLogo from "@/assets/coral-academy-logo.png";
 import heroImage from "@/assets/reptiles-hero.webp";
 import { Bug, Droplets, Microscope, Globe, ChevronDown, Calendar, PlayCircle, MapPin } from "lucide-react";
 import { useState } from "react";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 
 interface LandingScreenProps {
   onContinue: () => void;
@@ -45,33 +46,34 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
             {/* Hero Image with Video */}
             <div className="mb-10 md:mb-12">
               <div className="max-w-[90%] md:max-w-[85%] mx-auto relative">
-                {!showVideo ? (
-                  <div className="relative group cursor-pointer" onClick={() => setShowVideo(true)}>
-                    <img 
-                      src={heroImage} 
-                      alt="Into the Wild - Reptiles and Amphibians Collage" 
-                      className="w-full h-auto rounded-2xl border-4 border-white shadow-[0_12px_40px_rgba(0,0,0,0.12),0_4px_12px_rgba(0,0,0,0.08)]"
-                    />
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="bg-white/95 rounded-full p-4 md:p-6 shadow-[0_8px_30px_rgba(0,0,0,0.2)] group-hover:scale-110 transition-transform duration-200">
-                        <PlayCircle className="w-12 h-12 md:w-16 md:h-16 text-primary" strokeWidth={2} />
-                      </div>
+                <div className="relative group cursor-pointer" onClick={() => setShowVideo(true)}>
+                  <img 
+                    src={heroImage} 
+                    alt="Into the Wild - Reptiles and Amphibians Collage" 
+                    className="w-full h-auto rounded-2xl border-4 border-white shadow-[0_12px_40px_rgba(0,0,0,0.12),0_4px_12px_rgba(0,0,0,0.08)]"
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="bg-white/95 rounded-full p-4 md:p-6 shadow-[0_8px_30px_rgba(0,0,0,0.2)] group-hover:scale-110 transition-transform duration-200">
+                      <PlayCircle className="w-12 h-12 md:w-16 md:h-16 text-primary" strokeWidth={2} />
                     </div>
                   </div>
-                ) : (
-                  <div className="relative rounded-2xl overflow-hidden border-4 border-white shadow-[0_12px_40px_rgba(0,0,0,0.12),0_4px_12px_rgba(0,0,0,0.08)]">
-                    <video 
-                      controls 
-                      autoPlay
-                      className="w-full h-auto"
-                    >
-                      <source src="/videos/ITW_V4.mp4" type="video/mp4" />
-                      Your browser does not support the video tag.
-                    </video>
-                  </div>
-                )}
+                </div>
               </div>
             </div>
+
+            {/* Video Dialog */}
+            <Dialog open={showVideo} onOpenChange={setShowVideo}>
+              <DialogContent className="max-w-4xl p-0 bg-transparent border-none">
+                <video 
+                  controls 
+                  autoPlay
+                  className="w-full h-auto rounded-lg"
+                >
+                  <source src="/videos/ITW_V4.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </DialogContent>
+            </Dialog>
 
             {/* CTA Button */}
             <div className="flex justify-center mb-10 md:mb-12">
