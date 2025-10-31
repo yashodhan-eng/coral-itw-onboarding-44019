@@ -45,7 +45,7 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
 
             {/* Hero Image with Video */}
             <div className="mb-10 md:mb-12">
-              <div className="max-w-[90%] md:max-w-[85%] mx-auto relative">
+              <div className="max-w-[90%] md:max-w-[65%] mx-auto relative">
                 <div className="relative group cursor-pointer" onClick={() => setShowVideo(true)}>
                   <img 
                     src={heroImage} 
@@ -63,11 +63,11 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
 
             {/* Video Dialog */}
             <Dialog open={showVideo} onOpenChange={setShowVideo}>
-              <DialogContent className="max-w-4xl p-0 bg-transparent border-none">
+              <DialogContent className="p-0 bg-black border-none" style={{ width: '60vh', maxWidth: '90vw', aspectRatio: '9/16' }}>
                 <video 
                   controls 
                   autoPlay
-                  className="w-full h-auto rounded-lg"
+                  className="w-full h-full"
                 >
                   <source src="/videos/ITW_V4.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
