@@ -348,74 +348,260 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
                 Parent Testimonial
               </h2>
 
-              <div 
-                className="bg-white rounded-2xl p-5 md:p-6 relative overflow-hidden"
-                style={{
-                  boxShadow: '0 0 40px rgba(60, 125, 87, 0.15), 0 8px 24px rgba(0, 0, 0, 0.1)',
-                  animation: 'pulse-glow 3s ease-in-out infinite'
+              {/* Testimonial Slider */}
+              <Carousel
+                opts={{
+                  align: "center",
+                  loop: true,
                 }}
+                plugins={[
+                  Autoplay({
+                    delay: 3000,
+                    stopOnInteraction: false,
+                    stopOnMouseEnter: true,
+                  }),
+                ]}
+                className="w-full"
               >
-                {/* Parent Info at Top */}
-                <div className="mb-4 flex items-center gap-3">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[#B4D6B3] flex items-center justify-center">
-                    <span className="font-poppins font-semibold text-[20px] text-[#3C7D57]">
-                      J
-                    </span>
-                  </div>
-                  <div>
-                    <h3 className="font-poppins font-semibold text-[16px] md:text-[17px] text-foreground">
-                      Jennifer
-                    </h3>
-                    <p className="font-poppins text-[13px] md:text-[14px] text-secondary flex items-center gap-1">
-                      <span>📍</span>
-                      California
-                    </p>
-                  </div>
-                </div>
-
-                {/* Testimonial Text */}
-                <div className="relative">
-                  <div className={`${!isExpanded ? 'max-h-[140px] md:max-h-[120px]' : ''} overflow-hidden relative`}>
-                    <p className="font-poppins text-[14px] md:text-[15px] text-foreground leading-relaxed mb-4">
-                      My daughter absolutely loves this class and the teacher.
-                    </p>
-                    <p className="font-poppins text-[14px] md:text-[15px] text-foreground leading-relaxed mb-4">
-                      We signed her up because we wanted her to try a few science classes, though it's not really her thing. So I honestly wasn't expecting her to stick with it. She usually drops out of science classes after 3 or 4 weeks. But I was genuinely happy and surprised when she wanted to keep taking this one.
-                    </p>
-                    {isExpanded && (
-                      <>
-                        <p className="font-poppins text-[14px] md:text-[15px] text-foreground leading-relaxed mb-4">
-                          She loves the animal the teacher brings that they all call Lizzie and now she's always pointing out reptiles and species on walks or even on our balcony. She's started sharing facts at dinner, asking to look for frogs in the backyard and drawing pictures of the animals she learns about.
-                        </p>
-                        <p className="font-poppins text-[14px] md:text-[15px] text-foreground leading-relaxed">
-                          I love that the class feels so lively, and we couldn't be happier seeing her pick up on the topic so well.
-                        </p>
-                      </>
-                    )}
-                  </div>
-                    
-                  {/* Gradient Fade Overlay (only when collapsed) */}
-                  {!isExpanded && (
+                <CarouselContent>
+                  {/* Testimonial 1 */}
+                  <CarouselItem>
                     <div 
-                      className="absolute bottom-0 left-0 right-0 h-20 pointer-events-none"
+                      className="bg-white rounded-xl p-5 md:p-6 border border-[#E6E6E6]"
                       style={{
-                        background: 'linear-gradient(to bottom, transparent, white)'
+                        boxShadow: '0 2px 8px rgba(0, 0, 0, 0.05)'
                       }}
-                    />
-                  )}
+                    >
+                      {/* Star Rating */}
+                      <div className="flex items-center gap-1 mb-3">
+                        {[1, 2, 3, 4, 5].map((star) => (
+                          <Star key={star} className="w-4 h-4 fill-primary text-primary" strokeWidth={0} />
+                        ))}
+                      </div>
 
-                  {/* Show More/Less Button */}
-                  <button
-                    onClick={() => setIsExpanded(!isExpanded)}
-                    className="mt-3 flex items-center gap-1 font-poppins font-medium text-[14px] text-[#3C7D57] hover:text-[#3C7D57]/90 transition-colors"
-                  >
-                    {isExpanded ? 'Show less' : 'Show more'}
-                    <ChevronDown 
-                      className={`w-4 h-4 transition-transform duration-200 ${isExpanded ? 'rotate-180' : ''}`}
-                    />
-                  </button>
-                </div>
-              </div>
+                      {/* Quote */}
+                      <p className="font-poppins text-[15px] text-foreground leading-relaxed mb-4">
+                        "My daughter can't stop talking about the geckos and reptiles she saw in class!"
+                      </p>
+
+                      {/* Parent Info */}
+                      <div className="flex items-center gap-3">
+                        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary flex items-center justify-center">
+                          <span className="font-poppins font-semibold text-[14px] text-white">
+                            J
+                          </span>
+                        </div>
+                        <div>
+                          <p className="font-poppins font-medium text-[13px] text-[#333333]">
+                            Jennifer
+                          </p>
+                          <p className="font-poppins text-[13px] text-[#777777]">
+                            California
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </CarouselItem>
+
+                  {/* Testimonial 2 */}
+                  <CarouselItem>
+                    <div 
+                      className="bg-white rounded-xl p-5 md:p-6 border border-[#E6E6E6]"
+                      style={{
+                        boxShadow: '0 2px 8px rgba(0, 0, 0, 0.05)'
+                      }}
+                    >
+                      {/* Star Rating */}
+                      <div className="flex items-center gap-1 mb-3">
+                        {[1, 2, 3, 4].map((star) => (
+                          <Star key={star} className="w-4 h-4 fill-primary text-primary" strokeWidth={0} />
+                        ))}
+                        <Star className="w-4 h-4 fill-primary text-primary" strokeWidth={0} style={{ clipPath: 'inset(0 50% 0 0)' }} />
+                      </div>
+
+                      {/* Quote */}
+                      <p className="font-poppins text-[15px] text-foreground leading-relaxed mb-4">
+                        "This class brought science to life — she looks forward to it every week."
+                      </p>
+
+                      {/* Parent Info */}
+                      <div className="flex items-center gap-3">
+                        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary flex items-center justify-center">
+                          <span className="font-poppins font-semibold text-[14px] text-white">
+                            M
+                          </span>
+                        </div>
+                        <div>
+                          <p className="font-poppins font-medium text-[13px] text-[#333333]">
+                            Mark
+                          </p>
+                          <p className="font-poppins text-[13px] text-[#777777]">
+                            Texas
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </CarouselItem>
+
+                  {/* Testimonial 3 */}
+                  <CarouselItem>
+                    <div 
+                      className="bg-white rounded-xl p-5 md:p-6 border border-[#E6E6E6]"
+                      style={{
+                        boxShadow: '0 2px 8px rgba(0, 0, 0, 0.05)'
+                      }}
+                    >
+                      {/* Star Rating */}
+                      <div className="flex items-center gap-1 mb-3">
+                        {[1, 2, 3, 4].map((star) => (
+                          <Star key={star} className="w-4 h-4 fill-primary text-primary" strokeWidth={0} />
+                        ))}
+                        <Star className="w-4 h-4 fill-[#E6E6E6] text-[#E6E6E6]" strokeWidth={0} />
+                      </div>
+
+                      {/* Quote */}
+                      <p className="font-poppins text-[15px] text-foreground leading-relaxed mb-4">
+                        "Great mix of learning and fun. My son now knows the difference between reptiles and amphibians!"
+                      </p>
+
+                      {/* Parent Info */}
+                      <div className="flex items-center gap-3">
+                        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary flex items-center justify-center">
+                          <span className="font-poppins font-semibold text-[14px] text-white">
+                            O
+                          </span>
+                        </div>
+                        <div>
+                          <p className="font-poppins font-medium text-[13px] text-[#333333]">
+                            Olivia
+                          </p>
+                          <p className="font-poppins text-[13px] text-[#777777]">
+                            Florida
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </CarouselItem>
+
+                  {/* Testimonial 4 */}
+                  <CarouselItem>
+                    <div 
+                      className="bg-white rounded-xl p-5 md:p-6 border border-[#E6E6E6]"
+                      style={{
+                        boxShadow: '0 2px 8px rgba(0, 0, 0, 0.05)'
+                      }}
+                    >
+                      {/* Star Rating */}
+                      <div className="flex items-center gap-1 mb-3">
+                        {[1, 2, 3, 4, 5].map((star) => (
+                          <Star key={star} className="w-4 h-4 fill-primary text-primary" strokeWidth={0} />
+                        ))}
+                      </div>
+
+                      {/* Quote */}
+                      <p className="font-poppins text-[15px] text-foreground leading-relaxed mb-4">
+                        "The teacher made reptiles fascinating — my kid even shared facts at dinner."
+                      </p>
+
+                      {/* Parent Info */}
+                      <div className="flex items-center gap-3">
+                        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary flex items-center justify-center">
+                          <span className="font-poppins font-semibold text-[14px] text-white">
+                            P
+                          </span>
+                        </div>
+                        <div>
+                          <p className="font-poppins font-medium text-[13px] text-[#333333]">
+                            Priya
+                          </p>
+                          <p className="font-poppins text-[13px] text-[#777777]">
+                            New York
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </CarouselItem>
+
+                  {/* Testimonial 5 */}
+                  <CarouselItem>
+                    <div 
+                      className="bg-white rounded-xl p-5 md:p-6 border border-[#E6E6E6]"
+                      style={{
+                        boxShadow: '0 2px 8px rgba(0, 0, 0, 0.05)'
+                      }}
+                    >
+                      {/* Star Rating */}
+                      <div className="flex items-center gap-1 mb-3">
+                        {[1, 2, 3, 4].map((star) => (
+                          <Star key={star} className="w-4 h-4 fill-primary text-primary" strokeWidth={0} />
+                        ))}
+                        <Star className="w-4 h-4 fill-primary text-primary" strokeWidth={0} style={{ clipPath: 'inset(0 50% 0 0)' }} />
+                      </div>
+
+                      {/* Quote */}
+                      <p className="font-poppins text-[15px] text-foreground leading-relaxed mb-4">
+                        "Seeing live reptiles during class kept my child completely engaged."
+                      </p>
+
+                      {/* Parent Info */}
+                      <div className="flex items-center gap-3">
+                        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary flex items-center justify-center">
+                          <span className="font-poppins font-semibold text-[14px] text-white">
+                            E
+                          </span>
+                        </div>
+                        <div>
+                          <p className="font-poppins font-medium text-[13px] text-[#333333]">
+                            Ethan
+                          </p>
+                          <p className="font-poppins text-[13px] text-[#777777]">
+                            Washington
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </CarouselItem>
+
+                  {/* Testimonial 6 */}
+                  <CarouselItem>
+                    <div 
+                      className="bg-white rounded-xl p-5 md:p-6 border border-[#E6E6E6]"
+                      style={{
+                        boxShadow: '0 2px 8px rgba(0, 0, 0, 0.05)'
+                      }}
+                    >
+                      {/* Star Rating */}
+                      <div className="flex items-center gap-1 mb-3">
+                        {[1, 2, 3, 4, 5].map((star) => (
+                          <Star key={star} className="w-4 h-4 fill-primary text-primary" strokeWidth={0} />
+                        ))}
+                      </div>
+
+                      {/* Quote */}
+                      <p className="font-poppins text-[15px] text-foreground leading-relaxed mb-4">
+                        "Into the Wild was the highlight of our week — educational and exciting!"
+                      </p>
+
+                      {/* Parent Info */}
+                      <div className="flex items-center gap-3">
+                        <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary flex items-center justify-center">
+                          <span className="font-poppins font-semibold text-[14px] text-white">
+                            S
+                          </span>
+                        </div>
+                        <div>
+                          <p className="font-poppins font-medium text-[13px] text-[#333333]">
+                            Sofia
+                          </p>
+                          <p className="font-poppins text-[13px] text-[#777777]">
+                            Oregon
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </CarouselItem>
+                </CarouselContent>
+              </Carousel>
             </div>
 
             {/* CTA Button */}
