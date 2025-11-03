@@ -148,7 +148,7 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
               <div className="hidden md:block relative">
                 <Carousel
                   opts={{
-                    align: "center",
+                    align: "start",
                     loop: true,
                     dragFree: false,
                   }}
@@ -159,29 +159,29 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
                       stopOnMouseEnter: true,
                     }),
                   ]}
-                  className="w-full max-w-[1000px] mx-auto px-8"
+                  className="w-full max-w-[1100px] mx-auto px-4"
                 >
-                  <CarouselContent className="-ml-6">
-                    <CarouselItem className="pl-6 basis-1/3">
-                      <div className="bg-white rounded-full border border-[#EDEDED] shadow-[0_2px_8px_rgba(0,0,0,0.05)] h-16 flex items-center justify-center gap-2.5 px-6 transition-all duration-200 hover:scale-[1.02] hover:shadow-[0_4px_16px_rgba(0,0,0,0.1)]">
+                  <CarouselContent className="gap-4">
+                    <CarouselItem className="md:basis-1/3">
+                      <div className="bg-white rounded-full border border-[#EDEDED] shadow-[0_2px_8px_rgba(0,0,0,0.05)] h-16 flex items-center justify-center gap-2 px-4 py-3 transition-all duration-200 hover:scale-[1.02] hover:shadow-[0_4px_16px_rgba(0,0,0,0.1)] mx-2">
                         <Award className="w-4 h-4 text-primary flex-shrink-0" strokeWidth={2} />
-                        <span className="font-poppins font-medium text-[15px] text-foreground whitespace-nowrap">
+                        <span className="font-poppins font-medium text-[12px] lg:text-[13px] text-foreground text-center leading-tight">
                           100+ Years of Teacher Experience
                         </span>
                       </div>
                     </CarouselItem>
-                    <CarouselItem className="pl-6 basis-1/3">
-                      <div className="bg-white rounded-full border border-[#EDEDED] shadow-[0_2px_8px_rgba(0,0,0,0.05)] h-16 flex items-center justify-center gap-2.5 px-6 transition-all duration-200 hover:scale-[1.02] hover:shadow-[0_4px_16px_rgba(0,0,0,0.1)]">
+                    <CarouselItem className="md:basis-1/3">
+                      <div className="bg-white rounded-full border border-[#EDEDED] shadow-[0_2px_8px_rgba(0,0,0,0.05)] h-16 flex items-center justify-center gap-2 px-4 py-3 transition-all duration-200 hover:scale-[1.02] hover:shadow-[0_4px_16px_rgba(0,0,0,0.1)] mx-2">
                         <GraduationCap className="w-4 h-4 text-primary flex-shrink-0" strokeWidth={2} />
-                        <span className="font-poppins font-medium text-[15px] text-foreground whitespace-nowrap">
+                        <span className="font-poppins font-medium text-[12px] lg:text-[13px] text-foreground text-center leading-tight">
                           Founded by a Stanford Alum & Mom
                         </span>
                       </div>
                     </CarouselItem>
-                    <CarouselItem className="pl-6 basis-1/3">
-                      <div className="bg-white rounded-full border border-[#EDEDED] shadow-[0_2px_8px_rgba(0,0,0,0.05)] h-16 flex items-center justify-center gap-2.5 px-6 transition-all duration-200 hover:scale-[1.02] hover:shadow-[0_4px_16px_rgba(0,0,0,0.1)]">
+                    <CarouselItem className="md:basis-1/3">
+                      <div className="bg-white rounded-full border border-[#EDEDED] shadow-[0_2px_8px_rgba(0,0,0,0.05)] h-16 flex items-center justify-center gap-2 px-4 py-3 transition-all duration-200 hover:scale-[1.02] hover:shadow-[0_4px_16px_rgba(0,0,0,0.1)] mx-2">
                         <Users className="w-4 h-4 text-primary flex-shrink-0" strokeWidth={2} />
-                        <span className="font-poppins font-medium text-[15px] text-foreground whitespace-nowrap">
+                        <span className="font-poppins font-medium text-[12px] lg:text-[13px] text-foreground text-center leading-tight">
                           Loved by 1000+ Families
                         </span>
                       </div>
