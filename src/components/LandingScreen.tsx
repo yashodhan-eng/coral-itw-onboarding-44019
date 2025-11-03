@@ -101,70 +101,45 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
 
             {/* Feature Highlights Carousel */}
             <div className="mb-8 md:mb-10 overflow-hidden">
-              {/* Mobile: Carousel */}
-              <div className="md:hidden">
-                <Carousel
-                  opts={{
-                    align: "center",
-                    loop: true,
-                  }}
-                  plugins={[
-                    Autoplay({
-                      delay: 3000,
-                    }),
-                  ]}
-                  className="w-full max-w-[700px] mx-auto"
-                >
-                  <CarouselContent className="-ml-2">
-                    <CarouselItem className="pl-2 basis-full">
-                      <div className="bg-white rounded-full border border-[#EDEDED] shadow-[0_2px_8px_rgba(0,0,0,0.05)] h-16 flex items-center justify-center gap-2 px-6">
-                        <Award className="w-4 h-4 text-primary flex-shrink-0" strokeWidth={2} />
-                        <span className="font-poppins font-medium text-[14px] text-foreground whitespace-nowrap">
-                          100+ Years of Teacher Experience
-                        </span>
-                      </div>
-                    </CarouselItem>
-                    <CarouselItem className="pl-2 basis-full">
-                      <div className="bg-white rounded-full border border-[#EDEDED] shadow-[0_2px_8px_rgba(0,0,0,0.05)] h-16 flex items-center justify-center gap-2 px-6">
-                        <GraduationCap className="w-4 h-4 text-primary flex-shrink-0" strokeWidth={2} />
-                        <span className="font-poppins font-medium text-[14px] text-foreground whitespace-nowrap">
-                          Founded by a Stanford Alum & Mom
-                        </span>
-                      </div>
-                    </CarouselItem>
-                    <CarouselItem className="pl-2 basis-full">
-                      <div className="bg-white rounded-full border border-[#EDEDED] shadow-[0_2px_8px_rgba(0,0,0,0.05)] h-16 flex items-center justify-center gap-2 px-6">
-                        <Users className="w-4 h-4 text-primary flex-shrink-0" strokeWidth={2} />
-                        <span className="font-poppins font-medium text-[14px] text-foreground whitespace-nowrap">
-                          Loved by 1000+ Families
-                        </span>
-                      </div>
-                    </CarouselItem>
-                  </CarouselContent>
-                </Carousel>
-              </div>
-
-              {/* Tablet/Desktop: Static Row */}
-              <div className="hidden md:flex max-w-[900px] mx-auto gap-2 lg:gap-3 justify-center items-center px-4">
-                <div className="bg-white rounded-full border border-[#EDEDED] shadow-[0_2px_8px_rgba(0,0,0,0.05)] h-14 flex items-center justify-center gap-1.5 px-4">
-                  <Award className="w-3.5 h-3.5 text-primary flex-shrink-0" strokeWidth={2} />
-                  <span className="font-poppins font-medium text-[13px] lg:text-[14px] text-foreground whitespace-nowrap">
-                    100+ Years of Teacher Experience
-                  </span>
-                </div>
-                <div className="bg-white rounded-full border border-[#EDEDED] shadow-[0_2px_8px_rgba(0,0,0,0.05)] h-14 flex items-center justify-center gap-1.5 px-4">
-                  <GraduationCap className="w-3.5 h-3.5 text-primary flex-shrink-0" strokeWidth={2} />
-                  <span className="font-poppins font-medium text-[13px] lg:text-[14px] text-foreground whitespace-nowrap">
-                    Founded by a Stanford Alum & Mom
-                  </span>
-                </div>
-                <div className="bg-white rounded-full border border-[#EDEDED] shadow-[0_2px_8px_rgba(0,0,0,0.05)] h-14 flex items-center justify-center gap-1.5 px-4">
-                  <Users className="w-3.5 h-3.5 text-primary flex-shrink-0" strokeWidth={2} />
-                  <span className="font-poppins font-medium text-[13px] lg:text-[14px] text-foreground whitespace-nowrap">
-                    Loved by 1000+ Families
-                  </span>
-                </div>
-              </div>
+              <Carousel
+                opts={{
+                  align: "center",
+                  loop: true,
+                }}
+                plugins={[
+                  Autoplay({
+                    delay: 3000,
+                  }),
+                ]}
+                className="w-full max-w-[700px] mx-auto"
+              >
+                <CarouselContent className="-ml-2 md:-ml-4">
+                  <CarouselItem className="pl-2 md:pl-4 basis-full md:basis-1/3">
+                    <div className="bg-white rounded-full border border-[#EDEDED] shadow-[0_2px_8px_rgba(0,0,0,0.05)] h-16 flex items-center justify-center gap-2 px-6">
+                      <Award className="w-4 h-4 text-primary flex-shrink-0" strokeWidth={2} />
+                      <span className="font-poppins font-medium text-[14px] md:text-[15px] text-foreground whitespace-nowrap">
+                        100+ Years of Teacher Experience
+                      </span>
+                    </div>
+                  </CarouselItem>
+                  <CarouselItem className="pl-2 md:pl-4 basis-full md:basis-1/3">
+                    <div className="bg-white rounded-full border border-[#EDEDED] shadow-[0_2px_8px_rgba(0,0,0,0.05)] h-16 flex items-center justify-center gap-2 px-6">
+                      <GraduationCap className="w-4 h-4 text-primary flex-shrink-0" strokeWidth={2} />
+                      <span className="font-poppins font-medium text-[14px] md:text-[15px] text-foreground whitespace-nowrap">
+                        Founded by a Stanford Alum & Mom
+                      </span>
+                    </div>
+                  </CarouselItem>
+                  <CarouselItem className="pl-2 md:pl-4 basis-full md:basis-1/3">
+                    <div className="bg-white rounded-full border border-[#EDEDED] shadow-[0_2px_8px_rgba(0,0,0,0.05)] h-16 flex items-center justify-center gap-2 px-6">
+                      <Users className="w-4 h-4 text-primary flex-shrink-0" strokeWidth={2} />
+                      <span className="font-poppins font-medium text-[14px] md:text-[15px] text-foreground whitespace-nowrap">
+                        Loved by 1000+ Families
+                      </span>
+                    </div>
+                  </CarouselItem>
+                </CarouselContent>
+              </Carousel>
             </div>
 
             {/* CTA Button */}
