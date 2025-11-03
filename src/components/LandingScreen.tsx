@@ -1,6 +1,6 @@
 import coralLogo from "@/assets/coral-academy-logo.png";
 import heroImage from "@/assets/reptiles-hero.webp";
-import { Bug, Droplets, Microscope, Globe, ChevronDown, Calendar, PlayCircle, MapPin } from "lucide-react";
+import { Bug, Droplets, Microscope, Globe, ChevronDown, Calendar, PlayCircle, MapPin, Star } from "lucide-react";
 import { useState } from "react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 
@@ -22,6 +22,28 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
           alt="Coral Academy" 
           className="h-10 md:h-12"
         />
+      </div>
+
+      {/* Trustpilot Rating */}
+      <div className="flex items-center justify-center px-6 md:px-10 pb-6">
+        <div className="bg-white rounded-lg px-5 py-3 flex items-center gap-3 shadow-[0_2px_8px_rgba(0,0,0,0.08)]">
+          <span className="font-poppins font-semibold text-[16px] md:text-[18px] text-foreground">
+            Excellent
+          </span>
+          <div className="flex items-center gap-1">
+            {[1, 2, 3, 4].map((star) => (
+              <Star key={star} className="w-4 h-4 md:w-5 md:h-5 fill-[#00B67A] text-[#00B67A]" strokeWidth={0} />
+            ))}
+            <Star className="w-4 h-4 md:w-5 md:h-5 fill-[#00B67A] text-[#00B67A]" strokeWidth={0} style={{ clipPath: 'inset(0 30% 0 0)' }} />
+          </div>
+          <span className="font-poppins font-medium text-[14px] md:text-[16px] text-secondary">
+            4.7/5
+          </span>
+          <div className="h-5 w-px bg-border mx-1" />
+          <span className="font-poppins font-semibold text-[14px] md:text-[16px] text-foreground">
+            Trustpilot
+          </span>
+        </div>
       </div>
 
       <main className="pb-12">
