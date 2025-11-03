@@ -110,7 +110,7 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
                   }}
                   plugins={[
                     Autoplay({
-                      delay: 1000,
+                      delay: 2000,
                     }),
                   ]}
                   className="w-full max-w-[700px] mx-auto"
@@ -154,7 +154,7 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
                   }}
                   plugins={[
                     Autoplay({
-                      delay: 1000,
+                      delay: 2000,
                       stopOnInteraction: true,
                       stopOnMouseEnter: true,
                     }),
