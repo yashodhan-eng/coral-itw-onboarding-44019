@@ -1,8 +1,10 @@
 import coralLogo from "@/assets/coral-academy-logo.png";
 import heroImage from "@/assets/reptiles-hero.webp";
-import { Bug, Droplets, Microscope, Globe, ChevronDown, Calendar, PlayCircle, MapPin, Star } from "lucide-react";
+import { Bug, Droplets, Microscope, Globe, ChevronDown, Calendar, PlayCircle, MapPin, Star, Award, Users, GraduationCap } from "lucide-react";
 import { useState } from "react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 
 interface LandingScreenProps {
   onContinue: () => void;
@@ -67,7 +69,7 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
 
             {/* Hero Image with Video */}
             <div className="mb-10 md:mb-12">
-              <div className="max-w-[90%] md:max-w-[65%] mx-auto relative">
+              <div className="max-w-[75%] md:max-w-[60%] mx-auto relative">
                 <div className="relative group cursor-pointer" onClick={() => setShowVideo(true)}>
                   <img 
                     src={heroImage} 
@@ -96,6 +98,49 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
                 </video>
               </DialogContent>
             </Dialog>
+
+            {/* Feature Highlights Carousel */}
+            <div className="mb-8 md:mb-10 overflow-hidden">
+              <Carousel
+                opts={{
+                  align: "center",
+                  loop: true,
+                }}
+                plugins={[
+                  Autoplay({
+                    delay: 3000,
+                  }),
+                ]}
+                className="w-full max-w-[700px] mx-auto"
+              >
+                <CarouselContent className="-ml-2 md:-ml-4">
+                  <CarouselItem className="pl-2 md:pl-4 basis-full md:basis-1/3">
+                    <div className="bg-white rounded-full border border-[#EDEDED] shadow-[0_2px_8px_rgba(0,0,0,0.05)] h-16 flex items-center justify-center gap-2 px-6">
+                      <Award className="w-4 h-4 text-primary flex-shrink-0" strokeWidth={2} />
+                      <span className="font-poppins font-medium text-[14px] md:text-[15px] text-foreground whitespace-nowrap">
+                        100+ Years of Teacher Experience
+                      </span>
+                    </div>
+                  </CarouselItem>
+                  <CarouselItem className="pl-2 md:pl-4 basis-full md:basis-1/3">
+                    <div className="bg-white rounded-full border border-[#EDEDED] shadow-[0_2px_8px_rgba(0,0,0,0.05)] h-16 flex items-center justify-center gap-2 px-6">
+                      <GraduationCap className="w-4 h-4 text-primary flex-shrink-0" strokeWidth={2} />
+                      <span className="font-poppins font-medium text-[14px] md:text-[15px] text-foreground whitespace-nowrap">
+                        Founded by a Stanford Alum & Mom
+                      </span>
+                    </div>
+                  </CarouselItem>
+                  <CarouselItem className="pl-2 md:pl-4 basis-full md:basis-1/3">
+                    <div className="bg-white rounded-full border border-[#EDEDED] shadow-[0_2px_8px_rgba(0,0,0,0.05)] h-16 flex items-center justify-center gap-2 px-6">
+                      <Users className="w-4 h-4 text-primary flex-shrink-0" strokeWidth={2} />
+                      <span className="font-poppins font-medium text-[14px] md:text-[15px] text-foreground whitespace-nowrap">
+                        Loved by 1000+ Families
+                      </span>
+                    </div>
+                  </CarouselItem>
+                </CarouselContent>
+              </Carousel>
+            </div>
 
             {/* CTA Button */}
             <div className="flex justify-center mb-10 md:mb-12">
