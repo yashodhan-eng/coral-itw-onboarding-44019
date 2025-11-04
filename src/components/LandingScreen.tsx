@@ -67,286 +67,28 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
               </div>
             </div>
 
-            {/* Hero Image with Video */}
+            {/* Hero Image */}
             <div className="mb-10 md:mb-12">
               <div className="max-w-[75%] md:max-w-[60%] mx-auto relative">
-                <div className="relative group cursor-pointer" onClick={() => setShowVideo(true)}>
-                  <img 
-                    src={heroImage} 
-                    alt="Into the Wild - Reptiles and Amphibians Collage" 
-                    className="w-full h-auto rounded-2xl border-4 border-white shadow-[0_12px_40px_rgba(0,0,0,0.12),0_4px_12px_rgba(0,0,0,0.08)]"
-                  />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="bg-white/95 rounded-full p-4 md:p-6 shadow-[0_8px_30px_rgba(0,0,0,0.2)] group-hover:scale-110 transition-transform duration-200">
-                      <PlayCircle className="w-12 h-12 md:w-16 md:h-16 text-primary" strokeWidth={2} />
-                    </div>
-                  </div>
-                </div>
+                <img 
+                  src={heroImage} 
+                  alt="Into the Wild - Reptiles and Amphibians Collage" 
+                  className="w-full h-auto rounded-2xl border-4 border-white shadow-[0_12px_40px_rgba(0,0,0,0.12),0_4px_12px_rgba(0,0,0,0.08)]"
+                />
               </div>
             </div>
 
-            {/* Video Dialog */}
-            <Dialog open={showVideo} onOpenChange={setShowVideo}>
-              <DialogContent className="p-0 bg-black border-none" style={{ width: '60vh', maxWidth: '90vw', aspectRatio: '9/16' }}>
-                <video 
-                  controls 
-                  autoPlay
-                  className="w-full h-full"
-                >
-                  <source src="/videos/ITW_V4.mp4" type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
-              </DialogContent>
-            </Dialog>
-
-            {/* Feature Highlights Carousel */}
-            <div className="mb-8 md:mb-10 overflow-hidden">
-              {/* Mobile Version - Keep Exactly As Is */}
-              <div className="md:hidden">
-                <Carousel
-                  opts={{
-                    align: "center",
-                    loop: true,
-                  }}
-                  plugins={[
-                    Autoplay({
-                      delay: 2000,
-                    }),
-                  ]}
-                  className="w-full max-w-[700px] mx-auto"
-                >
-                  <CarouselContent className="-ml-2">
-                    <CarouselItem className="pl-2 basis-full">
-                      <div className="bg-white rounded-full border border-[#EDEDED] shadow-[0_2px_8px_rgba(0,0,0,0.05)] h-16 flex items-center justify-center gap-2 px-6">
-                        <Award className="w-4 h-4 text-primary flex-shrink-0" strokeWidth={2} />
-                        <span className="font-poppins font-medium text-[14px] text-foreground whitespace-nowrap">
-                          100+ Years of Teacher Experience
-                        </span>
-                      </div>
-                    </CarouselItem>
-                    <CarouselItem className="pl-2 basis-full">
-                      <div className="bg-white rounded-full border border-[#EDEDED] shadow-[0_2px_8px_rgba(0,0,0,0.05)] h-16 flex items-center justify-center gap-2 px-6">
-                        <GraduationCap className="w-4 h-4 text-primary flex-shrink-0" strokeWidth={2} />
-                        <span className="font-poppins font-medium text-[14px] text-foreground whitespace-nowrap">
-                          Founded by a Stanford Alum & Mom
-                        </span>
-                      </div>
-                    </CarouselItem>
-                    <CarouselItem className="pl-2 basis-full">
-                      <div className="bg-white rounded-full border border-[#EDEDED] shadow-[0_2px_8px_rgba(0,0,0,0.05)] h-16 flex items-center justify-center gap-2 px-6">
-                        <Users className="w-4 h-4 text-primary flex-shrink-0" strokeWidth={2} />
-                        <span className="font-poppins font-medium text-[14px] text-foreground whitespace-nowrap">
-                          Loved by 1000+ Families
-                        </span>
-                      </div>
-                    </CarouselItem>
-                  </CarouselContent>
-                </Carousel>
-              </div>
-
-              {/* Tablet/Desktop Version - Optimized */}
-              <div className="hidden md:block relative">
-                <Carousel
-                  opts={{
-                    align: "start",
-                    loop: true,
-                    dragFree: false,
-                  }}
-                  plugins={[
-                    Autoplay({
-                      delay: 2000,
-                      stopOnInteraction: true,
-                      stopOnMouseEnter: true,
-                    }),
-                  ]}
-                  className="w-full max-w-[1100px] mx-auto px-4"
-                >
-                  <CarouselContent className="gap-4">
-                    <CarouselItem className="md:basis-1/3">
-                      <div className="bg-white rounded-full border border-[#EDEDED] shadow-[0_2px_8px_rgba(0,0,0,0.05)] h-16 flex items-center justify-center gap-2 px-4 py-3 transition-all duration-200 hover:scale-[1.02] hover:shadow-[0_4px_16px_rgba(0,0,0,0.1)] mx-2">
-                        <Award className="w-4 h-4 text-primary flex-shrink-0" strokeWidth={2} />
-                        <span className="font-poppins font-medium text-[12px] lg:text-[13px] text-foreground text-center leading-tight">
-                          100+ Years of Teacher Experience
-                        </span>
-                      </div>
-                    </CarouselItem>
-                    <CarouselItem className="md:basis-1/3">
-                      <div className="bg-white rounded-full border border-[#EDEDED] shadow-[0_2px_8px_rgba(0,0,0,0.05)] h-16 flex items-center justify-center gap-2 px-4 py-3 transition-all duration-200 hover:scale-[1.02] hover:shadow-[0_4px_16px_rgba(0,0,0,0.1)] mx-2">
-                        <GraduationCap className="w-4 h-4 text-primary flex-shrink-0" strokeWidth={2} />
-                        <span className="font-poppins font-medium text-[12px] lg:text-[13px] text-foreground text-center leading-tight">
-                          Founded by a Stanford Alum & Mom
-                        </span>
-                      </div>
-                    </CarouselItem>
-                    <CarouselItem className="md:basis-1/3">
-                      <div className="bg-white rounded-full border border-[#EDEDED] shadow-[0_2px_8px_rgba(0,0,0,0.05)] h-16 flex items-center justify-center gap-2 px-4 py-3 transition-all duration-200 hover:scale-[1.02] hover:shadow-[0_4px_16px_rgba(0,0,0,0.1)] mx-2">
-                        <Users className="w-4 h-4 text-primary flex-shrink-0" strokeWidth={2} />
-                        <span className="font-poppins font-medium text-[12px] lg:text-[13px] text-foreground text-center leading-tight">
-                          Loved by 1000+ Families
-                        </span>
-                      </div>
-                    </CarouselItem>
-                  </CarouselContent>
-                </Carousel>
-              </div>
-            </div>
-
-            {/* CTA Button */}
-            <div className="flex justify-center mb-10 md:mb-12">
-              <button
-                onClick={onContinue}
-                className="h-[50px] md:h-[52px] px-10 md:px-12 font-poppins font-semibold text-[15px] 
-                         text-white rounded-full
-                         shadow-[0_3px_10px_rgba(240,90,38,0.25)] hover:shadow-[0_6px_20px_rgba(240,90,38,0.35)]
-                         hover:scale-[1.02] active:scale-[0.98] 
-                         transition-all duration-200"
-                style={{ 
-                  background: 'linear-gradient(180deg, #F46A37 0%, #E85522 100%)'
-                }}
-              >
-                 Enroll for Free
-              </button>
-            </div>
-
-            {/* Schedule Line */}
-            <div className="text-center mb-6">
-              <p className="font-inter text-[14px] md:text-[15px] text-accent italic font-medium">
-                Classes every Thursday at 5:00 PM PST.
-              </p>
-            </div>
-
-            {/* What Kids Learn Title */}
-            <div className="text-center mb-6">
-              <h2 className="font-poppins font-semibold text-[22px] md:text-[24px] text-foreground">
-                What Kids Learn
-              </h2>
-            </div>
-
-            {/* Learning Outcomes Section */}
-            <div className="mb-10 md:mb-12">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-[700px] mx-auto">
-                {/* Learn About Real Reptiles */}
-                <div className="bg-white rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.05)] p-3 md:p-4 flex flex-col items-center justify-center text-center">
-                  <Bug className="w-6 h-6 text-accent mb-2" strokeWidth={2} />
-                  <p className="font-poppins font-medium text-[13px] md:text-[14px] text-foreground">
-                    Learn About Real Reptiles
-                  </p>
-                </div>
-                
-                {/* Explore Amphibians Up Close */}
-                <div className="bg-white rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.05)] p-3 md:p-4 flex flex-col items-center justify-center text-center">
-                  <Droplets className="w-6 h-6 text-secondary mb-2" strokeWidth={2} />
-                  <p className="font-poppins font-medium text-[13px] md:text-[14px] text-foreground">
-                    Explore Amphibians Up Close
-                  </p>
-                </div>
-                
-                {/* Discover Unique Animal Facts */}
-                <div className="bg-white rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.05)] p-3 md:p-4 flex flex-col items-center justify-center text-center">
-                  <Microscope className="w-6 h-6 text-primary mb-2" strokeWidth={2} />
-                  <p className="font-poppins font-medium text-[13px] md:text-[14px] text-foreground">
-                    Discover Unique Animal Facts
-                  </p>
-                </div>
-                
-                {/* Travel Virtually to Wild Places */}
-                <div className="bg-white rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.05)] p-3 md:p-4 flex flex-col items-center justify-center text-center">
-                  <Globe className="w-6 h-6 text-accent mb-2" strokeWidth={2} />
-                  <p className="font-poppins font-medium text-[13px] md:text-[14px] text-foreground">
-                    Travel Virtually to Wild Places
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Upcoming Schedule Expandable Section */}
+            {/* Testimonial Section - Moved from Bottom */}
             <div className="mb-10 md:mb-12 max-w-[700px] mx-auto">
-              <div 
-                className="bg-white rounded-2xl overflow-hidden"
-                style={{
-                  boxShadow: '0 2px 12px rgba(0, 0, 0, 0.08)'
-                }}
-              >
-                {/* Header - Always Visible */}
-                <button
-                  onClick={() => setIsScheduleExpanded(!isScheduleExpanded)}
-                  className="w-full p-5 md:p-6 flex items-center justify-between hover:bg-background/50 transition-colors"
-                >
-                  <div className="flex items-center gap-3">
-                    <Calendar className="w-6 h-6 text-primary" strokeWidth={2} />
-                    <h3 className="font-poppins font-semibold text-[16px] md:text-[18px] text-foreground text-left">
-                      Upcoming Schedule
-                    </h3>
-                  </div>
-                  <ChevronDown 
-                    className={`w-5 h-5 text-secondary transition-transform duration-200 ${isScheduleExpanded ? 'rotate-180' : ''}`}
-                  />
-                </button>
-
-                {/* Expandable Content */}
-                {isScheduleExpanded && (
-                  <div className="px-5 md:px-6 pb-5 md:pb-6 pt-0 space-y-6 animate-fade-in">
-                    {/* Week 1 */}
-                    <div className="flex gap-4">
-                      <div className="flex-shrink-0 w-20">
-                        <span className="font-poppins font-semibold text-[15px] text-primary">
-                          Week 1
-                        </span>
-                      </div>
-                      <div className="flex-1">
-                        <h4 className="font-poppins font-semibold text-[15px] md:text-[16px] text-foreground mb-1">
-                          The Philippines
-                        </h4>
-                        <p className="font-poppins text-[14px] md:text-[15px] text-secondary">
-                          Flying lizards & rare island species
-                        </p>
-                      </div>
-                    </div>
-
-                    {/* Week 2 */}
-                    <div className="flex gap-4">
-                      <div className="flex-shrink-0 w-20">
-                        <span className="font-poppins font-semibold text-[15px] text-primary">
-                          Week 2
-                        </span>
-                      </div>
-                      <div className="flex-1">
-                        <h4 className="font-poppins font-semibold text-[15px] md:text-[16px] text-foreground mb-1">
-                          Tasmania
-                        </h4>
-                        <p className="font-poppins text-[14px] md:text-[15px] text-secondary">
-                          Native amphibians from a unique ecosystem
-                        </p>
-                      </div>
-                    </div>
-
-                    {/* Week 3 */}
-                    <div className="flex gap-4">
-                      <div className="flex-shrink-0 w-20">
-                        <span className="font-poppins font-semibold text-[15px] text-primary">
-                          Week 3
-                        </span>
-                      </div>
-                      <div className="flex-1">
-                        <h4 className="font-poppins font-semibold text-[15px] md:text-[16px] text-foreground mb-1">
-                          New Zealand
-                        </h4>
-                        <p className="font-poppins text-[14px] md:text-[15px] text-secondary">
-                          Ancient reptiles like the tuatara & their island adaptations
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                )}
+              {/* Section Header */}
+              <div className="text-center mb-6">
+                <h2 className="font-poppins font-semibold text-[24px] text-[#1A1A1A] mb-2">
+                  Loved by Parents Everywhere
+                </h2>
+                <p className="font-inter text-[15px] text-accent">
+                  Hear from families who've seen their kids light up with curiosity
+                </p>
               </div>
-            </div>
-
-            {/* Parent Testimonial Section */}
-            <div className="mb-10 md:mb-12 max-w-[700px] mx-auto">
-              {/* Section Title */}
-              <h2 className="font-poppins font-semibold text-[22px] md:text-[24px] text-foreground text-center mb-6">
-                Parent Testimonial
-              </h2>
 
               {/* Testimonial Slider */}
               <Carousel
@@ -356,7 +98,7 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
                 }}
                 plugins={[
                   Autoplay({
-                    delay: 3000,
+                    delay: 2000,
                     stopOnInteraction: false,
                     stopOnMouseEnter: true,
                   }),
@@ -603,6 +345,289 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
                 </CarouselContent>
               </Carousel>
             </div>
+
+            {/* Feature Highlights Carousel */}
+            <div className="mb-8 md:mb-10 overflow-hidden">
+              {/* Mobile Version - Keep Exactly As Is */}
+              <div className="md:hidden">
+                <Carousel
+                  opts={{
+                    align: "center",
+                    loop: true,
+                  }}
+                  plugins={[
+                    Autoplay({
+                      delay: 2000,
+                    }),
+                  ]}
+                  className="w-full max-w-[700px] mx-auto"
+                >
+                  <CarouselContent className="-ml-2">
+                    <CarouselItem className="pl-2 basis-full">
+                      <div className="bg-white rounded-full border border-[#EDEDED] shadow-[0_2px_8px_rgba(0,0,0,0.05)] h-16 flex items-center justify-center gap-2 px-6">
+                        <Award className="w-4 h-4 text-primary flex-shrink-0" strokeWidth={2} />
+                        <span className="font-poppins font-medium text-[14px] text-foreground whitespace-nowrap">
+                          100+ Years of Teacher Experience
+                        </span>
+                      </div>
+                    </CarouselItem>
+                    <CarouselItem className="pl-2 basis-full">
+                      <div className="bg-white rounded-full border border-[#EDEDED] shadow-[0_2px_8px_rgba(0,0,0,0.05)] h-16 flex items-center justify-center gap-2 px-6">
+                        <GraduationCap className="w-4 h-4 text-primary flex-shrink-0" strokeWidth={2} />
+                        <span className="font-poppins font-medium text-[14px] text-foreground whitespace-nowrap">
+                          Founded by a Stanford Alum & Mom
+                        </span>
+                      </div>
+                    </CarouselItem>
+                    <CarouselItem className="pl-2 basis-full">
+                      <div className="bg-white rounded-full border border-[#EDEDED] shadow-[0_2px_8px_rgba(0,0,0,0.05)] h-16 flex items-center justify-center gap-2 px-6">
+                        <Users className="w-4 h-4 text-primary flex-shrink-0" strokeWidth={2} />
+                        <span className="font-poppins font-medium text-[14px] text-foreground whitespace-nowrap">
+                          Loved by 1000+ Families
+                        </span>
+                      </div>
+                    </CarouselItem>
+                  </CarouselContent>
+                </Carousel>
+              </div>
+
+              {/* Tablet/Desktop Version - Optimized */}
+              <div className="hidden md:block relative">
+                <Carousel
+                  opts={{
+                    align: "start",
+                    loop: true,
+                    dragFree: false,
+                  }}
+                  plugins={[
+                    Autoplay({
+                      delay: 2000,
+                      stopOnInteraction: true,
+                      stopOnMouseEnter: true,
+                    }),
+                  ]}
+                  className="w-full max-w-[1100px] mx-auto px-4"
+                >
+                  <CarouselContent className="gap-4">
+                    <CarouselItem className="md:basis-1/3">
+                      <div className="bg-white rounded-full border border-[#EDEDED] shadow-[0_2px_8px_rgba(0,0,0,0.05)] h-16 flex items-center justify-center gap-2 px-4 py-3 transition-all duration-200 hover:scale-[1.02] hover:shadow-[0_4px_16px_rgba(0,0,0,0.1)] mx-2">
+                        <Award className="w-4 h-4 text-primary flex-shrink-0" strokeWidth={2} />
+                        <span className="font-poppins font-medium text-[12px] lg:text-[13px] text-foreground text-center leading-tight">
+                          100+ Years of Teacher Experience
+                        </span>
+                      </div>
+                    </CarouselItem>
+                    <CarouselItem className="md:basis-1/3">
+                      <div className="bg-white rounded-full border border-[#EDEDED] shadow-[0_2px_8px_rgba(0,0,0,0.05)] h-16 flex items-center justify-center gap-2 px-4 py-3 transition-all duration-200 hover:scale-[1.02] hover:shadow-[0_4px_16px_rgba(0,0,0,0.1)] mx-2">
+                        <GraduationCap className="w-4 h-4 text-primary flex-shrink-0" strokeWidth={2} />
+                        <span className="font-poppins font-medium text-[12px] lg:text-[13px] text-foreground text-center leading-tight">
+                          Founded by a Stanford Alum & Mom
+                        </span>
+                      </div>
+                    </CarouselItem>
+                    <CarouselItem className="md:basis-1/3">
+                      <div className="bg-white rounded-full border border-[#EDEDED] shadow-[0_2px_8px_rgba(0,0,0,0.05)] h-16 flex items-center justify-center gap-2 px-4 py-3 transition-all duration-200 hover:scale-[1.02] hover:shadow-[0_4px_16px_rgba(0,0,0,0.1)] mx-2">
+                        <Users className="w-4 h-4 text-primary flex-shrink-0" strokeWidth={2} />
+                        <span className="font-poppins font-medium text-[12px] lg:text-[13px] text-foreground text-center leading-tight">
+                          Loved by 1000+ Families
+                        </span>
+                      </div>
+                    </CarouselItem>
+                  </CarouselContent>
+                </Carousel>
+              </div>
+            </div>
+
+            {/* CTA Button */}
+            <div className="flex justify-center mb-10 md:mb-12">
+              <button
+                onClick={onContinue}
+                className="h-[50px] md:h-[52px] px-10 md:px-12 font-poppins font-semibold text-[15px] 
+                         text-white rounded-full
+                         shadow-[0_3px_10px_rgba(240,90,38,0.25)] hover:shadow-[0_6px_20px_rgba(240,90,38,0.35)]
+                         hover:scale-[1.02] active:scale-[0.98] 
+                         transition-all duration-200"
+                style={{ 
+                  background: 'linear-gradient(180deg, #F46A37 0%, #E85522 100%)'
+                }}
+              >
+                 Enroll for Free
+              </button>
+            </div>
+
+            {/* Schedule Line */}
+            <div className="text-center mb-6">
+              <p className="font-inter text-[14px] md:text-[15px] text-accent italic font-medium">
+                Classes every Thursday at 5:00 PM PST.
+              </p>
+            </div>
+
+            {/* What Kids Learn Title */}
+            <div className="text-center mb-6">
+              <h2 className="font-poppins font-semibold text-[22px] md:text-[24px] text-foreground">
+                What Kids Learn
+              </h2>
+            </div>
+
+            {/* Learning Outcomes Section */}
+            <div className="mb-10 md:mb-12">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-[700px] mx-auto">
+                {/* Learn About Real Reptiles */}
+                <div className="bg-white rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.05)] p-3 md:p-4 flex flex-col items-center justify-center text-center">
+                  <Bug className="w-6 h-6 text-accent mb-2" strokeWidth={2} />
+                  <p className="font-poppins font-medium text-[13px] md:text-[14px] text-foreground">
+                    Learn About Real Reptiles
+                  </p>
+                </div>
+                
+                {/* Explore Amphibians Up Close */}
+                <div className="bg-white rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.05)] p-3 md:p-4 flex flex-col items-center justify-center text-center">
+                  <Droplets className="w-6 h-6 text-secondary mb-2" strokeWidth={2} />
+                  <p className="font-poppins font-medium text-[13px] md:text-[14px] text-foreground">
+                    Explore Amphibians Up Close
+                  </p>
+                </div>
+                
+                {/* Discover Unique Animal Facts */}
+                <div className="bg-white rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.05)] p-3 md:p-4 flex flex-col items-center justify-center text-center">
+                  <Microscope className="w-6 h-6 text-primary mb-2" strokeWidth={2} />
+                  <p className="font-poppins font-medium text-[13px] md:text-[14px] text-foreground">
+                    Discover Unique Animal Facts
+                  </p>
+                </div>
+                
+                {/* Travel Virtually to Wild Places */}
+                <div className="bg-white rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.05)] p-3 md:p-4 flex flex-col items-center justify-center text-center">
+                  <Globe className="w-6 h-6 text-accent mb-2" strokeWidth={2} />
+                  <p className="font-poppins font-medium text-[13px] md:text-[14px] text-foreground">
+                    Travel Virtually to Wild Places
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Upcoming Schedule Expandable Section */}
+            <div className="mb-10 md:mb-12 max-w-[700px] mx-auto">
+              <div 
+                className="bg-white rounded-2xl overflow-hidden"
+                style={{
+                  boxShadow: '0 2px 12px rgba(0, 0, 0, 0.08)'
+                }}
+              >
+                {/* Header - Always Visible */}
+                <button
+                  onClick={() => setIsScheduleExpanded(!isScheduleExpanded)}
+                  className="w-full p-5 md:p-6 flex items-center justify-between hover:bg-background/50 transition-colors"
+                >
+                  <div className="flex items-center gap-3">
+                    <Calendar className="w-6 h-6 text-primary" strokeWidth={2} />
+                    <h3 className="font-poppins font-semibold text-[16px] md:text-[18px] text-foreground text-left">
+                      Upcoming Schedule
+                    </h3>
+                  </div>
+                  <ChevronDown 
+                    className={`w-5 h-5 text-secondary transition-transform duration-200 ${isScheduleExpanded ? 'rotate-180' : ''}`}
+                  />
+                </button>
+
+                {/* Expandable Content */}
+                {isScheduleExpanded && (
+                  <div className="px-5 md:px-6 pb-5 md:pb-6 pt-0 space-y-6 animate-fade-in">
+                    {/* Week 1 */}
+                    <div className="flex gap-4">
+                      <div className="flex-shrink-0 w-20">
+                        <span className="font-poppins font-semibold text-[15px] text-primary">
+                          Week 1
+                        </span>
+                      </div>
+                      <div className="flex-1">
+                        <h4 className="font-poppins font-semibold text-[15px] md:text-[16px] text-foreground mb-1">
+                          The Philippines
+                        </h4>
+                        <p className="font-poppins text-[14px] md:text-[15px] text-secondary">
+                          Flying lizards & rare island species
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Week 2 */}
+                    <div className="flex gap-4">
+                      <div className="flex-shrink-0 w-20">
+                        <span className="font-poppins font-semibold text-[15px] text-primary">
+                          Week 2
+                        </span>
+                      </div>
+                      <div className="flex-1">
+                        <h4 className="font-poppins font-semibold text-[15px] md:text-[16px] text-foreground mb-1">
+                          Tasmania
+                        </h4>
+                        <p className="font-poppins text-[14px] md:text-[15px] text-secondary">
+                          Native amphibians from a unique ecosystem
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Week 3 */}
+                    <div className="flex gap-4">
+                      <div className="flex-shrink-0 w-20">
+                        <span className="font-poppins font-semibold text-[15px] text-primary">
+                          Week 3
+                        </span>
+                      </div>
+                      <div className="flex-1">
+                        <h4 className="font-poppins font-semibold text-[15px] md:text-[16px] text-foreground mb-1">
+                          New Zealand
+                        </h4>
+                        <p className="font-poppins text-[14px] md:text-[15px] text-secondary">
+                          Ancient reptiles like the tuatara & their island adaptations
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* Video Section - Moved from Top */}
+            <div className="mb-10 md:mb-12 max-w-[720px] mx-auto">
+              {/* Section Header */}
+              <div className="text-center mb-6">
+                <h2 className="font-poppins font-semibold text-[24px] text-[#1A1A1A] mb-2">
+                  A Sneak Peek of Our Class
+                </h2>
+                <p className="font-inter text-[15px] text-accent">
+                  See what makes each session fun, interactive, and full of discovery
+                </p>
+              </div>
+
+              {/* Video Player */}
+              <div className="relative group cursor-pointer" onClick={() => setShowVideo(true)}>
+                <img 
+                  src={heroImage} 
+                  alt="Into the Wild Class Preview" 
+                  className="w-full h-auto rounded-2xl border-4 border-white shadow-[0_12px_40px_rgba(0,0,0,0.12),0_4px_12px_rgba(0,0,0,0.08)]"
+                />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="bg-white/95 rounded-full p-4 md:p-6 shadow-[0_8px_30px_rgba(0,0,0,0.2)] group-hover:scale-110 transition-transform duration-200">
+                    <PlayCircle className="w-12 h-12 md:w-16 md:h-16 text-primary" strokeWidth={2} />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Video Dialog */}
+            <Dialog open={showVideo} onOpenChange={setShowVideo}>
+              <DialogContent className="p-0 bg-black border-none" style={{ width: '60vh', maxWidth: '90vw', aspectRatio: '9/16' }}>
+                <video 
+                  controls 
+                  autoPlay
+                  className="w-full h-full"
+                >
+                  <source src="/videos/ITW_V4.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </DialogContent>
+            </Dialog>
 
             {/* CTA Button */}
             <div className="flex justify-center">
