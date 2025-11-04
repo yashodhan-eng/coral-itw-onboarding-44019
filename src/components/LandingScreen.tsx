@@ -325,8 +325,15 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
               </Carousel>
             </div>
 
+            {/* Schedule Line */}
+            <div className="text-center mb-4 md:mb-5">
+              <p className="font-inter text-[14px] md:text-[15px] text-accent italic font-medium">
+                Classes every Thursday at 5:00 PM PST.
+              </p>
+            </div>
+
             {/* CTA Button */}
-            <div className="flex justify-center mb-8 md:mb-10">
+            <div className="flex justify-center mb-6 md:mb-7">
               <button
                 onClick={onContinue}
                 className="h-[50px] md:h-[52px] px-10 md:px-12 font-poppins font-semibold text-[15px] 
@@ -343,7 +350,7 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
             </div>
 
             {/* Feature Highlights Carousel */}
-            <div className="mb-8 md:mb-10 overflow-hidden">
+            <div className="mb-6 md:mb-7 overflow-hidden">
               {/* Mobile Version - Keep Exactly As Is */}
               <div className="md:hidden">
                 <Carousel
@@ -434,13 +441,6 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
                   </CarouselContent>
                 </Carousel>
               </div>
-            </div>
-
-            {/* Schedule Line */}
-            <div className="text-center mb-6">
-              <p className="font-inter text-[14px] md:text-[15px] text-accent italic font-medium">
-                Classes every Thursday at 5:00 PM PST.
-              </p>
             </div>
 
             {/* What Kids Learn Title */}
