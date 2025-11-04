@@ -67,29 +67,8 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
               </div>
             </div>
 
-            {/* Hero Image */}
-            <div className="mb-10 md:mb-12">
-              <div className="max-w-[75%] md:max-w-[60%] mx-auto relative">
-                <img 
-                  src={heroImage} 
-                  alt="Into the Wild - Reptiles and Amphibians Collage" 
-                  className="w-full h-auto rounded-2xl border-4 border-white shadow-[0_12px_40px_rgba(0,0,0,0.12),0_4px_12px_rgba(0,0,0,0.08)]"
-                />
-              </div>
-            </div>
-
             {/* Testimonial Section - Moved from Bottom */}
             <div className="mb-10 md:mb-12 max-w-[700px] mx-auto">
-              {/* Section Header */}
-              <div className="text-center mb-6">
-                <h2 className="font-poppins font-semibold text-[24px] text-[#1A1A1A] mb-2">
-                  Loved by Parents Everywhere
-                </h2>
-                <p className="font-inter text-[15px] text-accent">
-                  Hear from families who've seen their kids light up with curiosity
-                </p>
-              </div>
-
               {/* Testimonial Slider */}
               <Carousel
                 opts={{
@@ -100,7 +79,7 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
                   Autoplay({
                     delay: 2000,
                     stopOnInteraction: false,
-                    stopOnMouseEnter: true,
+                    stopOnMouseEnter: false,
                   }),
                 ]}
                 className="w-full"
@@ -346,6 +325,13 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
               </Carousel>
             </div>
 
+            {/* Section Header for Testimonials */}
+            <div className="text-center mb-8 md:mb-10">
+              <h2 className="font-poppins font-semibold text-[24px] text-[#1A1A1A]">
+                Loved by Parents Everywhere
+              </h2>
+            </div>
+
             {/* Feature Highlights Carousel */}
             <div className="mb-8 md:mb-10 overflow-hidden">
               {/* Mobile Version - Keep Exactly As Is */}
@@ -358,6 +344,8 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
                   plugins={[
                     Autoplay({
                       delay: 2000,
+                      stopOnInteraction: false,
+                      stopOnMouseEnter: false,
                     }),
                   ]}
                   className="w-full max-w-[700px] mx-auto"
@@ -402,8 +390,8 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
                   plugins={[
                     Autoplay({
                       delay: 2000,
-                      stopOnInteraction: true,
-                      stopOnMouseEnter: true,
+                      stopOnInteraction: false,
+                      stopOnMouseEnter: false,
                     }),
                   ]}
                   className="w-full max-w-[1100px] mx-auto px-4"
