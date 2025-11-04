@@ -28,21 +28,21 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
 
       {/* Trustpilot Rating */}
       <div className="flex items-center justify-center px-6 md:px-10 pb-2 md:pb-6">
-        <div className="bg-white rounded-lg border border-border px-4 md:px-5 py-2.5 md:py-3 flex items-center justify-center gap-2 md:gap-3 shadow-[0_2px_8px_rgba(0,0,0,0.08)] mx-4">
-          <span className="font-poppins font-semibold text-[14px] md:text-[16px] lg:text-[18px] text-foreground whitespace-nowrap">
+        <div className="bg-white rounded-lg border border-border px-3 md:px-5 py-1.5 md:py-3 flex items-center justify-center gap-1.5 md:gap-3 shadow-[0_2px_8px_rgba(0,0,0,0.08)] mx-4">
+          <span className="font-poppins font-semibold text-[12px] md:text-[16px] lg:text-[18px] text-foreground whitespace-nowrap">
             Excellent
           </span>
           <div className="flex items-center gap-0.5 md:gap-1">
             {[1, 2, 3, 4].map((star) => (
-              <Star key={star} className="w-3.5 h-3.5 md:w-4 md:h-4 lg:w-5 lg:h-5 fill-[#00B67A] text-[#00B67A]" strokeWidth={0} />
+              <Star key={star} className="w-3 h-3 md:w-4 md:h-4 lg:w-5 lg:h-5 fill-[#00B67A] text-[#00B67A]" strokeWidth={0} />
             ))}
-            <Star className="w-3.5 h-3.5 md:w-4 md:h-4 lg:w-5 lg:h-5 fill-[#00B67A] text-[#00B67A]" strokeWidth={0} style={{ clipPath: 'inset(0 30% 0 0)' }} />
+            <Star className="w-3 h-3 md:w-4 md:h-4 lg:w-5 lg:h-5 fill-[#00B67A] text-[#00B67A]" strokeWidth={0} style={{ clipPath: 'inset(0 30% 0 0)' }} />
           </div>
-          <span className="font-poppins font-medium text-[13px] md:text-[14px] lg:text-[16px] text-secondary whitespace-nowrap">
+          <span className="font-poppins font-medium text-[11px] md:text-[14px] lg:text-[16px] text-secondary whitespace-nowrap">
             4.7/5
           </span>
-          <div className="h-4 md:h-5 w-px bg-border" />
-          <span className="font-poppins font-semibold text-[13px] md:text-[14px] lg:text-[16px] text-foreground whitespace-nowrap">
+          <div className="h-3 md:h-5 w-px bg-border" />
+          <span className="font-poppins font-semibold text-[11px] md:text-[14px] lg:text-[16px] text-foreground whitespace-nowrap">
             Trustpilot
           </span>
         </div>
@@ -52,26 +52,26 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
         <div className="animate-fade-in">
           <div className="w-full max-w-[900px] mx-auto px-6 md:px-10 lg:px-20">
             {/* Ages Tag - Moved Above Title */}
-            <div className="text-center mb-3 md:mb-4">
-              <div className="inline-block bg-[#FFF1EC] border border-primary rounded-full px-[14px] py-[6px]">
-                <span className="font-poppins font-medium text-[14px] text-primary">
+            <div className="text-center mb-2 md:mb-4">
+              <div className="inline-block bg-[#FFF1EC] border border-primary rounded-full px-3 md:px-[14px] py-1 md:py-[6px]">
+                <span className="font-poppins font-medium text-[12px] md:text-[14px] text-primary">
                   Ages 8–13
                 </span>
               </div>
             </div>
 
             {/* Title Section */}
-            <div className="text-center mb-4 md:mb-6">
-              <h1 className="font-poppins font-semibold text-[28px] md:text-[32px] lg:text-[36px] text-foreground mb-3 tracking-tight leading-tight">
+            <div className="text-center mb-3 md:mb-6">
+              <h1 className="font-poppins font-semibold text-[24px] md:text-[32px] lg:text-[36px] text-foreground mb-2 md:mb-3 tracking-tight leading-tight">
                 Into the Wild: Exploring Reptiles & Amphibians
               </h1>
-              <p className="font-poppins text-[14px] md:text-[18px] text-secondary font-medium tracking-wide">
+              <p className="font-poppins text-[13px] md:text-[18px] text-secondary font-medium tracking-wide">
                 Live, weekly, science classes with real reptiles & amphibians
               </p>
             </div>
 
             {/* Testimonial Section */}
-            <div className="mb-4 md:mb-6 max-w-[700px] mx-auto">
+            <div className="mb-3 md:mb-6 max-w-[700px] mx-auto">
               {/* Testimonial Slider */}
               <Carousel
                 opts={{
@@ -329,14 +329,14 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
             </div>
 
             {/* Schedule Line */}
-            <div className="text-center mb-4 md:mb-5">
-              <p className="font-inter text-[14px] md:text-[15px] text-accent italic font-medium">
+            <div className="text-center mb-3 md:mb-5">
+              <p className="font-inter text-[13px] md:text-[15px] text-accent italic font-medium">
                 Classes every Thursday at 5:00 PM PST.
               </p>
             </div>
 
             {/* Feature Highlights Carousel */}
-            <div className="mb-4 md:mb-6 overflow-hidden">
+            <div className="mb-3 md:mb-6 overflow-hidden">
               {/* Mobile Version - Keep Exactly As Is */}
               <div className="md:hidden">
                 <Carousel
