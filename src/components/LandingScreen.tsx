@@ -27,7 +27,7 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
       </div>
 
       {/* Trustpilot Rating */}
-      <div className="flex items-center justify-center px-6 md:px-10 pb-6">
+      <div className="flex items-center justify-center px-6 md:px-10 pb-2 md:pb-6">
         <div className="bg-white rounded-lg border border-border px-4 md:px-5 py-2.5 md:py-3 flex items-center justify-center gap-2 md:gap-3 shadow-[0_2px_8px_rgba(0,0,0,0.08)] mx-4">
           <span className="font-poppins font-semibold text-[14px] md:text-[16px] lg:text-[18px] text-foreground whitespace-nowrap">
             Excellent
@@ -51,15 +51,8 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
       <main className="pb-12">
         <div className="animate-fade-in">
           <div className="w-full max-w-[900px] mx-auto px-6 md:px-10 lg:px-20">
-            {/* Title Section */}
-            <div className="text-center mb-8 md:mb-10">
-              <h1 className="font-poppins font-semibold text-[28px] md:text-[32px] lg:text-[36px] text-foreground mb-3 tracking-tight leading-tight">
-                Into the Wild: Exploring Reptiles & Amphibians
-              </h1>
-              <p className="font-poppins text-[16px] md:text-[18px] text-secondary font-medium tracking-wide mb-3">
-                Live, weekly, science classes with real reptiles & amphibians
-              </p>
-              {/* Ages Tag */}
+            {/* Ages Tag - Moved Above Title */}
+            <div className="text-center mb-3 md:mb-4">
               <div className="inline-block bg-[#FFF1EC] border border-primary rounded-full px-[14px] py-[6px]">
                 <span className="font-poppins font-medium text-[14px] text-primary">
                   Ages 8–13
@@ -67,8 +60,18 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
               </div>
             </div>
 
-            {/* Testimonial Section - Moved from Bottom */}
-            <div className="mb-10 md:mb-12 max-w-[700px] mx-auto">
+            {/* Title Section */}
+            <div className="text-center mb-4 md:mb-6">
+              <h1 className="font-poppins font-semibold text-[28px] md:text-[32px] lg:text-[36px] text-foreground mb-3 tracking-tight leading-tight">
+                Into the Wild: Exploring Reptiles & Amphibians
+              </h1>
+              <p className="font-poppins text-[14px] md:text-[18px] text-secondary font-medium tracking-wide">
+                Live, weekly, science classes with real reptiles & amphibians
+              </p>
+            </div>
+
+            {/* Testimonial Section */}
+            <div className="mb-4 md:mb-6 max-w-[700px] mx-auto">
               {/* Testimonial Slider */}
               <Carousel
                 opts={{
@@ -326,31 +329,14 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
             </div>
 
             {/* Schedule Line */}
-            <div className="text-center my-6 md:my-7">
+            <div className="text-center mb-4 md:mb-5">
               <p className="font-inter text-[14px] md:text-[15px] text-accent italic font-medium">
                 Classes every Thursday at 5:00 PM PST.
               </p>
             </div>
 
-            {/* CTA Button */}
-            <div className="flex justify-center mb-6 md:mb-7">
-              <button
-                onClick={onContinue}
-                className="h-[50px] md:h-[52px] px-10 md:px-12 font-poppins font-semibold text-[15px] 
-                         text-white rounded-full
-                         shadow-[0_3px_10px_rgba(240,90,38,0.25)] hover:shadow-[0_6px_20px_rgba(240,90,38,0.35)]
-                         hover:scale-[1.02] active:scale-[0.98] 
-                         transition-all duration-200"
-                style={{ 
-                  background: 'linear-gradient(180deg, #F46A37 0%, #E85522 100%)'
-                }}
-              >
-                 Enroll for Free
-              </button>
-            </div>
-
             {/* Feature Highlights Carousel */}
-            <div className="mb-6 md:mb-7 overflow-hidden">
+            <div className="mb-4 md:mb-6 overflow-hidden">
               {/* Mobile Version - Keep Exactly As Is */}
               <div className="md:hidden">
                 <Carousel
@@ -441,6 +427,23 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
                   </CarouselContent>
                 </Carousel>
               </div>
+            </div>
+
+            {/* CTA Button */}
+            <div className="flex justify-center mb-8 md:mb-10">
+              <button
+                onClick={onContinue}
+                className="h-[46px] md:h-[52px] px-10 md:px-12 font-poppins font-semibold text-[15px] 
+                         text-white rounded-full
+                         shadow-[0_3px_10px_rgba(240,90,38,0.25)] hover:shadow-[0_6px_20px_rgba(240,90,38,0.35)]
+                         hover:scale-[1.02] active:scale-[0.98] 
+                         transition-all duration-200"
+                style={{ 
+                  background: 'linear-gradient(180deg, #F46A37 0%, #E85522 100%)'
+                }}
+              >
+                 Enroll for Free
+              </button>
             </div>
 
             {/* What Kids Learn Title */}
