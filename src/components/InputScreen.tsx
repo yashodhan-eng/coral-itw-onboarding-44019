@@ -174,12 +174,12 @@ export const InputScreen = ({
   return (
     <div className="animate-fade-in">
       {heroImage && (
-        <div className="w-full max-w-[1000px] mx-auto px-4 pt-8 mb-8">
-          <div className="mb-10">
+        <div className="w-full max-w-[900px] mx-auto px-4 pt-4 md:pt-6">
+          <div className="mb-2 md:mb-4">
             <img 
               src={heroImage} 
               alt={`${title} illustration`}
-              className="w-full h-auto rounded-2xl shadow-lg"
+              className="w-full h-auto max-h-[30vh] md:max-h-[35vh] object-cover rounded-2xl shadow-lg"
             />
           </div>
         </div>
@@ -195,16 +195,16 @@ export const InputScreen = ({
             <ChevronLeft className="w-6 h-6" style={{ color: '#F05A26' }} />
           </button>
         )}
-        <div className="w-full max-w-[360px] md:max-w-[520px] lg:max-w-[640px] space-y-8 md:space-y-10">
+        <div className="w-full max-w-[360px] md:max-w-[520px] lg:max-w-[640px] space-y-4 md:space-y-6">
           <div className="text-center">
-            <h1 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-foreground leading-tight">
+            <h1 className="text-xl md:text-2xl lg:text-3xl font-semibold text-foreground leading-tight">
               {title}
             </h1>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-4 md:space-y-5">
             <div className="space-y-2">
-              <Label htmlFor={`input-${step}`} className="text-base md:text-lg font-medium">
+              <Label htmlFor={`input-${step}`} className="text-sm md:text-base font-medium">
                 {label}
               </Label>
               <Input
@@ -213,7 +213,7 @@ export const InputScreen = ({
                 value={value}
                 onChange={handleChange}
                 onBlur={() => setTouched(true)}
-                className="h-14 text-base md:text-lg rounded-full px-6 bg-white border border-gray-300
+                className="h-12 md:h-13 text-sm md:text-base rounded-full px-5 bg-white border border-gray-300
                          focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                 placeholder={placeholderText}
                 data-step={step}
@@ -227,11 +227,11 @@ export const InputScreen = ({
 
             {/* reCAPTCHA Container - always shown for email type */}
             {type === "email" && (
-              <div className="flex justify-center my-4 min-h-[78px]">
+              <div className="flex justify-center my-3 min-h-[78px]">
                 <div 
                   ref={recaptchaContainerRef}
                   id={`recaptcha-container-${step}`}
-                  className="flex justify-center"
+                  className="flex justify-center scale-90 md:scale-100 origin-center"
                 />
               </div>
             )}
@@ -239,7 +239,7 @@ export const InputScreen = ({
             <Button
               type="submit"
               disabled={isDisabled || (type === "email" && !recaptchaToken)}
-              className="w-full h-14 text-base md:text-lg font-semibold rounded-full
+              className="w-full h-11 md:h-12 text-sm md:text-base font-semibold rounded-full
                        bg-primary text-primary-foreground 
                        hover:opacity-90 active:scale-[0.98]
                        disabled:opacity-50 disabled:cursor-not-allowed

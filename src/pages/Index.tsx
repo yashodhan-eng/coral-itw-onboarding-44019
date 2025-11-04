@@ -10,10 +10,10 @@ import { contentSchema, OnboardingAnswers } from "@/data/contentSchema";
 import { adCampaignService } from "@/lib/api";
 import { toast } from "sonner";
 import { Loader2 } from "lucide-react";
-import q1Hero from "@/assets/q1-hero.jpg";
-import screen2Hero from "@/assets/screen2-hero.jpg";
-import screen4Hero from "@/assets/screen4-hero-new.jpg";
-import screen5Hero from "@/assets/screen5-hero-new.jpg";
+import q1Hero from "@/assets/mbs-hero.jpg";
+import screen2Hero from "@/assets/mbs-hero-2.jpg";
+import screen4Hero from "@/assets/mbs-hero-3.jpg";
+import screen5Hero from "@/assets/mbs-hero-4.jpg";
 
 const STORAGE_KEY = "coralOnboardingAnswers";
 const SUBMISSION_KEY = "coralOnboardingSubmission";
@@ -205,12 +205,12 @@ const Index = () => {
 
         {currentStep === 1 && (
           <div className="animate-fade-in">
-            <div className="w-full max-w-[1000px] mx-auto px-4 pt-6 md:pt-8">
-              <div className="mb-4 md:mb-8">
+            <div className="w-full max-w-[900px] mx-auto px-4 pt-4 md:pt-6">
+              <div className="mb-2 md:mb-4">
                 <img 
                   src={q1Hero} 
                   alt="Parent and child discovering business class" 
-                  className="w-full h-auto rounded-2xl shadow-lg"
+                  className="w-full h-auto max-h-[30vh] md:max-h-[35vh] object-cover rounded-2xl shadow-lg"
                   loading="eager"
                 />
               </div>
@@ -229,12 +229,12 @@ const Index = () => {
 
         {currentStep === 2 && (
           <div className="animate-fade-in">
-            <div className="w-full max-w-[1000px] mx-auto px-4 pt-6 md:pt-8">
-              <div className="mb-4 md:mb-8">
+            <div className="w-full max-w-[900px] mx-auto px-4 pt-4 md:pt-6">
+              <div className="mb-2 md:mb-4">
                 <img 
                   src={screen2Hero} 
                   alt="Kids learning about business" 
-                  className="w-full h-auto rounded-2xl shadow-lg"
+                  className="w-full h-auto max-h-[30vh] md:max-h-[35vh] object-cover rounded-2xl shadow-lg"
                   loading="eager"
                 />
               </div>
