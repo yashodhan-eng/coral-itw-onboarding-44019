@@ -357,8 +357,8 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
                     <CarouselItem className="pl-2 basis-full">
                       <div className="bg-white rounded-full border border-[#EDEDED] shadow-[0_2px_8px_rgba(0,0,0,0.05)] h-14 flex items-center justify-center gap-2 px-6">
                         <Award className="w-4 h-4 text-primary flex-shrink-0" strokeWidth={2} />
-                        <span className="font-poppins font-medium text-[13px] text-foreground whitespace-nowrap">
-                          100+ Years of Teacher Experience
+                        <span className="font-poppins font-medium text-[13px] text-foreground text-center leading-tight px-1">
+                          100+ Years of Collective Teaching Experience
                         </span>
                       </div>
                     </CarouselItem>
@@ -404,7 +404,7 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
                       <div className="bg-white rounded-full border border-[#EDEDED] shadow-[0_2px_8px_rgba(0,0,0,0.05)] h-16 flex items-center justify-center gap-2 px-4 py-3 transition-all duration-200 hover:scale-[1.02] hover:shadow-[0_4px_16px_rgba(0,0,0,0.1)] mx-2">
                         <Award className="w-4 h-4 text-primary flex-shrink-0" strokeWidth={2} />
                         <span className="font-poppins font-medium text-[12px] lg:text-[13px] text-foreground text-center leading-tight">
-                          100+ Years of Teacher Experience
+                          100+ Years of Collective Teaching Experience
                         </span>
                       </div>
                     </CarouselItem>

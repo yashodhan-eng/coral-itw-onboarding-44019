@@ -46,25 +46,25 @@ export const MultiSelectScreen = ({
           <ChevronLeft className="w-6 h-6" style={{ color: '#F05A26' }} />
         </button>
       )}
-      <div className="w-full max-w-[360px] md:max-w-[520px] lg:max-w-[640px] space-y-3 md:space-y-5">
-        <div className="text-center space-y-1.5 md:space-y-2">
-          <h1 className="text-xl md:text-2xl lg:text-3xl font-semibold text-foreground leading-tight">
+      <div className="w-full max-w-[360px] md:max-w-[680px] lg:max-w-[800px] space-y-2.5 md:space-y-4">
+        <div className="text-center space-y-1 md:space-y-1.5">
+          <h1 className="text-lg md:text-xl lg:text-2xl font-semibold text-foreground leading-tight">
             {title}
           </h1>
           {subtext && (
-            <p className="text-sm md:text-base font-medium" style={{ color: '#2788A0' }}>
+            <p className="text-xs md:text-sm font-medium" style={{ color: '#2788A0' }}>
               {subtext}
             </p>
           )}
         </div>
 
-        {/* Options Grid - 2x3 on mobile, 3x2 on tablet/desktop */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-2.5 md:gap-3">
+        {/* Options Grid - 2x4 on mobile, 4x2 on tablet/desktop */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-2.5">
           {options.map((option, index) => (
             <button
               key={index}
               onClick={() => toggleOption(option)}
-              className={`h-auto min-h-[48px] md:min-h-[54px] py-3.5 md:py-4 px-3.5 text-sm md:text-base font-medium rounded-full
+              className={`h-auto min-h-[42px] md:min-h-[46px] py-2.5 md:py-3 px-3 text-[13px] md:text-[14px] font-medium rounded-full
                        border-2 transition-all duration-200
                        shadow-sm hover:shadow-lg hover:scale-[1.02]
                        active:scale-[0.98]
@@ -85,11 +85,11 @@ export const MultiSelectScreen = ({
         </div>
 
         {/* Submit Button */}
-        <div className="flex justify-center pt-1.5">
+        <div className="flex justify-center pt-0.5 md:pt-1">
           <Button
             onClick={handleSubmit}
             disabled={selectedOptions.length === 0}
-            className="w-full max-w-[280px] h-[42px] text-sm md:text-base font-semibold rounded-full
+            className="w-full max-w-[280px] h-[40px] text-sm md:text-base font-semibold rounded-full
                      bg-[#F05A26] hover:bg-[#D94D20] text-white
                      shadow-md hover:shadow-xl hover:scale-[1.02]
                      active:scale-[0.98] transition-all duration-200
