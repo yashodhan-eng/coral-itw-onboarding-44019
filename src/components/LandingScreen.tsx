@@ -442,7 +442,7 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
                   background: 'linear-gradient(180deg, #F46A37 0%, #E85522 100%)'
                 }}
               >
-                 Enroll for Free
+                 Try for Free
               </button>
             </div>
 
@@ -626,7 +626,7 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
                   background: 'linear-gradient(180deg, #F46A37 0%, #E85522 100%)'
                 }}
               >
-                 Enroll for Free
+                 Try for Free
               </button>
             </div>
           </div>

@@ -12,10 +12,15 @@ export const contentSchema = {
     ]
   },
   q2: {
-    title: "What's your child's current schooling style?",
+    title: "What topics is your child interested in?",
+    subtext: "Select multiple and submit.",
     options: [
-      "Public/Private schooling",
-      "Homeschooling"
+      "Business",
+      "Science",
+      "Coding",
+      "AI",
+      "Drawing",
+      "Logic"
     ]
   },
   name: {

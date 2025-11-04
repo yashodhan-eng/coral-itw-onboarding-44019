@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { TopNav } from "@/components/TopNav";
 import { LandingScreen } from "@/components/LandingScreen";
 import { QuestionScreen } from "@/components/QuestionScreen";
+import { MultiSelectScreen } from "@/components/MultiSelectScreen";
 import { InputScreen } from "@/components/InputScreen";
 import { ThankYouScreen } from "@/components/ThankYouScreen";
 import { BackgroundTheme } from "@/components/BackgroundTheme";
@@ -68,6 +69,16 @@ const Index = () => {
 
   const handleQuestionSelect = (questionKey: string, value: string) => {
     const newAnswers = { ...answers, [questionKey]: value };
+    setAnswers(newAnswers);
+    
+    // Auto-advance after a brief delay for visual feedback
+    setTimeout(() => {
+      setCurrentStep(prev => prev + 1);
+    }, 200);
+  };
+
+  const handleMultiSelect = (questionKey: string, values: string[]) => {
+    const newAnswers = { ...answers, [questionKey]: values.join(', ') };
     setAnswers(newAnswers);
     
     // Auto-advance after a brief delay for visual feedback
@@ -229,11 +240,12 @@ const Index = () => {
               </div>
             </div>
 
-            <QuestionScreen
+            <MultiSelectScreen
               step={2}
               title={contentSchema.q2.title}
+              subtext={contentSchema.q2.subtext}
               options={contentSchema.q2.options}
-              onSelect={(option, index) => handleQuestionSelect("q2", option)}
+              onSubmit={(selectedOptions) => handleMultiSelect("q2", selectedOptions)}
               onBack={handleBack}
             />
           </div>
