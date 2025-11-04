@@ -325,11 +325,21 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
               </Carousel>
             </div>
 
-            {/* Section Header for Testimonials */}
-            <div className="text-center mb-8 md:mb-10">
-              <h2 className="font-poppins font-semibold text-[24px] text-[#1A1A1A]">
-                Loved by Parents Everywhere
-              </h2>
+            {/* CTA Button */}
+            <div className="flex justify-center mb-8 md:mb-10">
+              <button
+                onClick={onContinue}
+                className="h-[50px] md:h-[52px] px-10 md:px-12 font-poppins font-semibold text-[15px] 
+                         text-white rounded-full
+                         shadow-[0_3px_10px_rgba(240,90,38,0.25)] hover:shadow-[0_6px_20px_rgba(240,90,38,0.35)]
+                         hover:scale-[1.02] active:scale-[0.98] 
+                         transition-all duration-200"
+                style={{ 
+                  background: 'linear-gradient(180deg, #F46A37 0%, #E85522 100%)'
+                }}
+              >
+                 Enroll for Free
+              </button>
             </div>
 
             {/* Feature Highlights Carousel */}
@@ -424,23 +434,6 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
                   </CarouselContent>
                 </Carousel>
               </div>
-            </div>
-
-            {/* CTA Button */}
-            <div className="flex justify-center mb-10 md:mb-12">
-              <button
-                onClick={onContinue}
-                className="h-[50px] md:h-[52px] px-10 md:px-12 font-poppins font-semibold text-[15px] 
-                         text-white rounded-full
-                         shadow-[0_3px_10px_rgba(240,90,38,0.25)] hover:shadow-[0_6px_20px_rgba(240,90,38,0.35)]
-                         hover:scale-[1.02] active:scale-[0.98] 
-                         transition-all duration-200"
-                style={{ 
-                  background: 'linear-gradient(180deg, #F46A37 0%, #E85522 100%)'
-                }}
-              >
-                 Enroll for Free
-              </button>
             </div>
 
             {/* Schedule Line */}
