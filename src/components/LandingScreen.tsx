@@ -18,7 +18,7 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
   return (
     <div className="min-h-screen bg-background relative">
       {/* Logo at top center */}
-      <div className="flex items-center justify-center px-6 md:px-10 py-8">
+      <div className="flex items-center justify-center px-6 md:px-10 py-6 md:py-8">
         <img 
           src={coralLogo} 
           alt="Coral Academy" 
@@ -52,9 +52,9 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
         <div className="animate-fade-in">
           <div className="w-full max-w-[900px] mx-auto px-6 md:px-10 lg:px-20">
             {/* Ages Tag - Moved Above Title */}
-            <div className="text-center mb-2 md:mb-4">
+            <div className="text-center mb-2.5 md:mb-4">
               <div className="inline-block bg-[#FFF1EC] border border-primary rounded-full px-3 md:px-[14px] py-1 md:py-[6px]">
-                <span className="font-poppins font-medium text-[12px] md:text-[14px] text-primary">
+                <span className="font-poppins font-medium text-[13px] md:text-[14px] text-primary">
                   Ages 8–13
                 </span>
               </div>
@@ -62,16 +62,16 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
 
             {/* Title Section */}
             <div className="text-center mb-3 md:mb-6">
-              <h1 className="font-poppins font-semibold text-[24px] md:text-[32px] lg:text-[36px] text-foreground mb-2 md:mb-3 tracking-tight leading-tight">
+              <h1 className="font-poppins font-semibold text-[24px] md:text-[32px] lg:text-[36px] text-foreground mb-2.5 md:mb-3 tracking-tight leading-tight">
                 Into the Wild: Exploring Reptiles & Amphibians
               </h1>
-              <p className="font-poppins text-[13px] md:text-[18px] text-secondary font-medium tracking-wide">
+              <p className="font-poppins text-[14px] md:text-[18px] text-secondary font-medium tracking-wide">
                 Live, weekly, science classes with real reptiles & amphibians
               </p>
             </div>
 
             {/* Testimonial Section */}
-            <div className="mb-3 md:mb-6 max-w-[700px] mx-auto">
+            <div className="mb-2.5 md:mb-6 max-w-[700px] mx-auto">
               {/* Testimonial Slider */}
               <Carousel
                 opts={{
@@ -91,7 +91,7 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
                   {/* Testimonial 1 */}
                   <CarouselItem>
                     <div 
-                      className="bg-white rounded-xl p-5 md:p-6 border border-[#E6E6E6]"
+                      className="bg-white rounded-xl p-4 md:p-6 border border-[#E6E6E6]"
                       style={{
                         boxShadow: '0 2px 8px rgba(0, 0, 0, 0.05)'
                       }}
@@ -130,7 +130,7 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
                   {/* Testimonial 2 */}
                   <CarouselItem>
                     <div 
-                      className="bg-white rounded-xl p-5 md:p-6 border border-[#E6E6E6]"
+                      className="bg-white rounded-xl p-4 md:p-6 border border-[#E6E6E6]"
                       style={{
                         boxShadow: '0 2px 8px rgba(0, 0, 0, 0.05)'
                       }}
@@ -170,7 +170,7 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
                   {/* Testimonial 3 */}
                   <CarouselItem>
                     <div 
-                      className="bg-white rounded-xl p-5 md:p-6 border border-[#E6E6E6]"
+                      className="bg-white rounded-xl p-4 md:p-6 border border-[#E6E6E6]"
                       style={{
                         boxShadow: '0 2px 8px rgba(0, 0, 0, 0.05)'
                       }}
@@ -210,7 +210,7 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
                   {/* Testimonial 4 */}
                   <CarouselItem>
                     <div 
-                      className="bg-white rounded-xl p-5 md:p-6 border border-[#E6E6E6]"
+                      className="bg-white rounded-xl p-4 md:p-6 border border-[#E6E6E6]"
                       style={{
                         boxShadow: '0 2px 8px rgba(0, 0, 0, 0.05)'
                       }}
@@ -249,7 +249,7 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
                   {/* Testimonial 5 */}
                   <CarouselItem>
                     <div 
-                      className="bg-white rounded-xl p-5 md:p-6 border border-[#E6E6E6]"
+                      className="bg-white rounded-xl p-4 md:p-6 border border-[#E6E6E6]"
                       style={{
                         boxShadow: '0 2px 8px rgba(0, 0, 0, 0.05)'
                       }}
@@ -289,7 +289,7 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
                   {/* Testimonial 6 */}
                   <CarouselItem>
                     <div 
-                      className="bg-white rounded-xl p-5 md:p-6 border border-[#E6E6E6]"
+                      className="bg-white rounded-xl p-4 md:p-6 border border-[#E6E6E6]"
                       style={{
                         boxShadow: '0 2px 8px rgba(0, 0, 0, 0.05)'
                       }}
@@ -336,7 +336,7 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
             </div>
 
             {/* Feature Highlights Carousel */}
-            <div className="mb-3 md:mb-6 overflow-hidden">
+            <div className="mb-4 md:mb-6 overflow-hidden">
               {/* Mobile Version - Keep Exactly As Is */}
               <div className="md:hidden">
                 <Carousel
@@ -355,25 +355,25 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
                 >
                   <CarouselContent className="-ml-2">
                     <CarouselItem className="pl-2 basis-full">
-                      <div className="bg-white rounded-full border border-[#EDEDED] shadow-[0_2px_8px_rgba(0,0,0,0.05)] h-16 flex items-center justify-center gap-2 px-6">
+                      <div className="bg-white rounded-full border border-[#EDEDED] shadow-[0_2px_8px_rgba(0,0,0,0.05)] h-14 flex items-center justify-center gap-2 px-6">
                         <Award className="w-4 h-4 text-primary flex-shrink-0" strokeWidth={2} />
-                        <span className="font-poppins font-medium text-[14px] text-foreground whitespace-nowrap">
+                        <span className="font-poppins font-medium text-[13px] text-foreground whitespace-nowrap">
                           100+ Years of Teacher Experience
                         </span>
                       </div>
                     </CarouselItem>
                     <CarouselItem className="pl-2 basis-full">
-                      <div className="bg-white rounded-full border border-[#EDEDED] shadow-[0_2px_8px_rgba(0,0,0,0.05)] h-16 flex items-center justify-center gap-2 px-6">
+                      <div className="bg-white rounded-full border border-[#EDEDED] shadow-[0_2px_8px_rgba(0,0,0,0.05)] h-14 flex items-center justify-center gap-2 px-6">
                         <GraduationCap className="w-4 h-4 text-primary flex-shrink-0" strokeWidth={2} />
-                        <span className="font-poppins font-medium text-[14px] text-foreground whitespace-nowrap">
+                        <span className="font-poppins font-medium text-[13px] text-foreground whitespace-nowrap">
                           Founded by a Stanford Alum & Mom
                         </span>
                       </div>
                     </CarouselItem>
                     <CarouselItem className="pl-2 basis-full">
-                      <div className="bg-white rounded-full border border-[#EDEDED] shadow-[0_2px_8px_rgba(0,0,0,0.05)] h-16 flex items-center justify-center gap-2 px-6">
+                      <div className="bg-white rounded-full border border-[#EDEDED] shadow-[0_2px_8px_rgba(0,0,0,0.05)] h-14 flex items-center justify-center gap-2 px-6">
                         <Users className="w-4 h-4 text-primary flex-shrink-0" strokeWidth={2} />
-                        <span className="font-poppins font-medium text-[14px] text-foreground whitespace-nowrap">
+                        <span className="font-poppins font-medium text-[13px] text-foreground whitespace-nowrap">
                           Loved by 1000+ Families
                         </span>
                       </div>
