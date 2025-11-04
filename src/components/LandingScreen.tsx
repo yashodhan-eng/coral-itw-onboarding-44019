@@ -326,7 +326,7 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
             </div>
 
             {/* Schedule Line */}
-            <div className="text-center mb-4 md:mb-5">
+            <div className="text-center my-6 md:my-7">
               <p className="font-inter text-[14px] md:text-[15px] text-accent italic font-medium">
                 Classes every Thursday at 5:00 PM PST.
               </p>
