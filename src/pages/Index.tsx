@@ -162,7 +162,7 @@ const Index = () => {
       email: finalAnswers.email,
       source: 'ITW_Quiz_Page',
       how_soon: finalAnswers.q1 ? mapHowSoon(finalAnswers.q1) : null,
-      schooling_mode: finalAnswers.q2 ? mapSchoolingMode(finalAnswers.q2) : null,
+      preferred_topics: finalAnswers.q2 ? mapSchoolingMode(finalAnswers.q2) : null,
       hasRecaptchaToken: !!recaptchaToken,
     });
 
@@ -171,7 +171,7 @@ const Index = () => {
       email: finalAnswers.email,
       source: 'ITW_Quiz_Page',
       how_soon: finalAnswers.q1 ? mapHowSoon(finalAnswers.q1) : null,
-      schooling_mode: finalAnswers.q2 ? mapSchoolingMode(finalAnswers.q2) : null,
+      preferred_topics: finalAnswers.q2 ? mapSchoolingMode(finalAnswers.q2) : null,
       recaptchaToken: recaptchaToken,
     });
 
