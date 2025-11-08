@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { ChevronLeft } from "lucide-react";
+import { trackFormEvent } from "@/lib/mixpanel";
 
 declare global {
   interface Window {
@@ -52,6 +53,15 @@ export const InputScreen = ({
   const recaptchaWidgetId = useRef<number | null>(null);
   const recaptchaContainerRef = useRef<HTMLDivElement>(null);
 
+  // Track form opened when component mounts
+  useEffect(() => {
+    trackFormEvent("opened", type === "email" ? "email_form" : "name_form", {
+      step: step,
+      field_name: type,
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   // Load reCAPTCHA script for email type immediately
   useEffect(() => {
     if (type === "email" && !recaptchaLoaded) {
@@ -91,6 +101,12 @@ export const InputScreen = ({
           callback: (token: string) => {
             console.log('reCAPTCHA token received:', token ? `${token.substring(0, 20)}...` : 'null');
             setRecaptchaToken(token);
+            // Track reCAPTCHA completion
+            trackFormEvent("field_changed", "email_form", {
+              step: step,
+              field_name: "recaptcha",
+              recaptcha_completed: true,
+            });
           },
           'error-callback': () => {
             console.error('reCAPTCHA error callback triggered');
@@ -211,7 +227,21 @@ export const InputScreen = ({
                 id={`input-${step}`}
                 type={type}
                 value={value}
-                onChange={handleChange}
+                onChange={(e) => {
+                  handleChange(e);
+                  // Track field changes
+                  trackFormEvent("field_changed", type === "email" ? "email_form" : "name_form", {
+                    step: step,
+                    field_name: type,
+                    field_value_length: e.target.value.length,
+                  });
+                }}
+                onFocus={() => {
+                  trackFormEvent("field_focused", type === "email" ? "email_form" : "name_form", {
+                    step: step,
+                    field_name: type,
+                  });
+                }}
                 onBlur={() => setTouched(true)}
                 className="h-12 md:h-13 text-sm md:text-base rounded-full px-5 bg-white border border-gray-300
                          focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"

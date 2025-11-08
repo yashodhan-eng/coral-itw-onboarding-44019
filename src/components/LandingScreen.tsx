@@ -5,6 +5,7 @@ import { useState } from "react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
+import { trackVideoEvent, trackModalEvent, trackButtonClick } from "@/lib/mixpanel";
 
 interface LandingScreenProps {
   onContinue: () => void;
@@ -585,7 +586,19 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
               </div>
 
               {/* Video Player */}
-              <div className="relative group cursor-pointer" onClick={() => setShowVideo(true)}>
+              <div className="relative group cursor-pointer" onClick={() => {
+                trackButtonClick("Video Play Button", {
+                  video_name: "ITW_V4",
+                  location: "landing_screen",
+                });
+                trackVideoEvent("play", "ITW_V4", {
+                  location: "landing_screen",
+                });
+                trackModalEvent("opened", "video_modal", {
+                  video_name: "ITW_V4",
+                });
+                setShowVideo(true);
+              }}>
                 <img 
                   src={heroImage} 
                   alt="Into the Wild Class Preview" 
@@ -600,12 +613,22 @@ export const LandingScreen = ({ onContinue }: LandingScreenProps) => {
             </div>
 
             {/* Video Dialog */}
-            <Dialog open={showVideo} onOpenChange={setShowVideo}>
+            <Dialog open={showVideo} onOpenChange={(open) => {
+              if (!open) {
+                trackModalEvent("closed", "video_modal", {
+                  video_name: "ITW_V4",
+                });
+              }
+              setShowVideo(open);
+            }}>
               <DialogContent className="p-0 bg-black border-none" style={{ width: '60vh', maxWidth: '90vw', aspectRatio: '9/16' }}>
                 <video 
                   controls 
                   autoPlay
                   className="w-full h-full"
+                  onPlay={() => trackVideoEvent("play", "ITW_V4", { location: "modal" })}
+                  onPause={() => trackVideoEvent("pause", "ITW_V4", { location: "modal" })}
+                  onEnded={() => trackVideoEvent("ended", "ITW_V4", { location: "modal" })}
                 >
                   <source src="/videos/ITW_V4.mp4" type="video/mp4" />
                   Your browser does not support the video tag.

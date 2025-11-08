@@ -14,6 +14,7 @@ import q1Hero from "@/assets/mbs-hero.jpg";
 import screen2Hero from "@/assets/mbs-hero-2.jpg";
 import screen4Hero from "@/assets/mbs-hero-3.jpg";
 import screen5Hero from "@/assets/mbs-hero-4.jpg";
+import { trackPageView, trackEvent, trackButtonClick, trackFormEvent, identifyUser } from "@/lib/mixpanel";
 
 const STORAGE_KEY = "coralOnboardingAnswers";
 const SUBMISSION_KEY = "coralOnboardingSubmission";
@@ -52,6 +53,25 @@ const Index = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [redirectUrl, setRedirectUrl] = useState('');
 
+  // Track page view on mount
+  useEffect(() => {
+    trackPageView("Home Page", {
+      page_path: window.location.pathname,
+      page_title: document.title,
+    });
+  }, []);
+
+  // Track step progression
+  useEffect(() => {
+    if (currentStep > 0) {
+      trackEvent("Step Viewed", {
+        step: currentStep,
+        total_steps: 4,
+        has_answers: Object.keys(answers).length > 0,
+      });
+    }
+  }, [currentStep]);
+
   // Clear storage and start fresh for preview
   useEffect(() => {
     localStorage.removeItem(SUBMISSION_KEY);
@@ -72,6 +92,14 @@ const Index = () => {
     const newAnswers = { ...answers, [questionKey]: value };
     setAnswers(newAnswers);
     
+    // Track question selection
+    trackEvent("Question Answered", {
+      question_key: questionKey,
+      question_value: value,
+      step: currentStep,
+      total_answers: Object.keys(newAnswers).length,
+    });
+    
     // Auto-advance after a brief delay for visual feedback
     setTimeout(() => {
       setCurrentStep(prev => prev + 1);
@@ -82,6 +110,16 @@ const Index = () => {
     const newAnswers = { ...answers, [questionKey]: values.join(', ') };
     setAnswers(newAnswers);
     
+    // Track multi-select question
+    trackEvent("Question Answered", {
+      question_key: questionKey,
+      question_values: values,
+      question_value: values.join(', '),
+      step: currentStep,
+      total_answers: Object.keys(newAnswers).length,
+      selection_count: values.length,
+    });
+    
     // Auto-advance after a brief delay for visual feedback
     setTimeout(() => {
       setCurrentStep(prev => prev + 1);
@@ -89,12 +127,25 @@ const Index = () => {
   };
 
   const handleBack = () => {
-    setCurrentStep(prev => Math.max(0, prev - 1));
+    const previousStep = Math.max(0, currentStep - 1);
+    trackButtonClick("Back Button", {
+      from_step: currentStep,
+      to_step: previousStep,
+    });
+    setCurrentStep(previousStep);
   };
 
   const handleNameSubmit = (name: string) => {
     const newAnswers = { ...answers, name };
     setAnswers(newAnswers);
+    
+    // Track name submission
+    trackFormEvent("submitted", "name_form", {
+      step: 3,
+      field_name: "name",
+      has_name: !!name,
+    });
+    
     setCurrentStep(4);
   };
 
@@ -106,6 +157,14 @@ const Index = () => {
     };
     setAnswers(finalAnswers);
     
+    // Track email form submission started
+    trackFormEvent("submitted", "email_form", {
+      step: 4,
+      field_name: "email",
+      has_email: !!email,
+      has_recaptcha: !!recaptchaToken,
+    });
+    
     // Save submission locally
     localStorage.setItem(SUBMISSION_KEY, JSON.stringify(finalAnswers));
     
@@ -113,6 +172,13 @@ const Index = () => {
     setIsSubmitting(true);
     try {
       await submitToBackend(finalAnswers, recaptchaToken);
+      
+      // Track signin attempt
+      trackEvent("Signin Started", {
+        email: email,
+        step: 4,
+      });
+      
       const response = await adCampaignService.signin({ email, recaptchaToken });
       console.log('Signin response:', response);
       const navlink = response.magicLink || response.magic_link;
@@ -123,12 +189,35 @@ const Index = () => {
         contentSchema.redirectUrl = navlink;
         setRedirectUrl(navlink);
         console.log('Redirecting to:', contentSchema.redirectUrl);
+        
+        // Track successful signin
+        trackEvent("Signin Successful", {
+          email: email,
+          user_id: response.user_id,
+          has_magic_link: true,
+        });
+        
+        // Track successful completion
+        trackEvent("Onboarding Completed", {
+          step: 4,
+          email: email,
+          has_magic_link: true,
+          redirect_url: navlink,
+        });
+        
         return;
       }
       if (!response.success) {
         setIsSubmitting(false);
         let errorMessage = 'Registration failed. Please try again.';
         toast.error(errorMessage);
+        
+        // Track signin failure
+        trackEvent("Signin Failed", {
+          step: 4,
+          error_type: "signin_failed",
+          error_message: errorMessage,
+        });
       }
       setIsSubmitted(true);
       
@@ -138,11 +227,23 @@ const Index = () => {
       
       // Show error message
       let errorMessage = 'Registration failed. Please try again.';
+      let errorType = 'unknown_error';
       if (error.errorType === 'duplicate_email') {
         errorMessage = 'Email already registered. Please use a different email address.';
+        errorType = 'duplicate_email';
       } else if (error.message) {
         errorMessage = error.message;
+        errorType = error.errorType || 'api_error';
       }
+      
+      // Track error event
+      trackEvent("Onboarding Error", {
+        step: 4,
+        error_type: errorType,
+        error_message: errorMessage,
+        has_email: !!email,
+      });
+      
       toast.error(errorMessage);
     }
   };
@@ -166,6 +267,14 @@ const Index = () => {
       hasRecaptchaToken: !!recaptchaToken,
     });
 
+    // Track registration attempt
+    trackEvent("Registration Started", {
+      email: finalAnswers.email,
+      source: 'ITW_Quiz_Page',
+      how_soon: finalAnswers.q1 ? mapHowSoon(finalAnswers.q1) : null,
+      preferred_topics: finalAnswers.q2 ? mapSchoolingMode(finalAnswers.q2) : null,
+    });
+
     const response = await adCampaignService.register({
       name: finalAnswers.name,
       email: finalAnswers.email,
@@ -176,7 +285,34 @@ const Index = () => {
     });
 
     if (!response.success) {
+      // Track registration failure
+      trackEvent("Registration Failed", {
+        email: finalAnswers.email,
+        error: response.error || 'Registration failed',
+        error_type: response.error_type || 'unknown',
+      });
       throw new Error(response.error || 'Registration failed');
+    }
+
+    // Track successful registration
+    trackEvent("Registration Successful", {
+      email: finalAnswers.email,
+      user_id: response.user_id,
+      account_created: response.account_created,
+      how_soon: finalAnswers.q1 ? mapHowSoon(finalAnswers.q1) : null,
+      preferred_topics: finalAnswers.q2 ? mapSchoolingMode(finalAnswers.q2) : null,
+    });
+
+    // Identify user in Mixpanel after successful registration
+    if (response.user_id) {
+      identifyUser(response.user_id, {
+        email: finalAnswers.email,
+        name: finalAnswers.name,
+        how_soon: finalAnswers.q1 ? mapHowSoon(finalAnswers.q1) : null,
+        preferred_topics: finalAnswers.q2 ? mapSchoolingMode(finalAnswers.q2) : null,
+        source: 'ITW_Quiz_Page',
+        account_created: response.account_created,
+      });
     }
   };
 
@@ -219,7 +355,13 @@ const Index = () => {
 
       <main className="pb-8">
         {currentStep === 0 && (
-          <LandingScreen onContinue={() => setCurrentStep(1)} />
+          <LandingScreen onContinue={() => {
+            trackButtonClick("Try for Free", {
+              step: 0,
+              action: "landing_screen_continue",
+            });
+            setCurrentStep(1);
+          }} />
         )}
 
         {currentStep === 1 && (
